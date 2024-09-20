@@ -1,12 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [MenuModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+  items: any;
+
+  ngOnInit(): void {
+     this.items = [
+    {
+      label: 'Espace CV',
+      icon: 'pi pi-file',
+      routerLink: ['/espace-cv']
+    },
+    {
+      label: 'Espace Appel d’offre',
+      icon: 'pi pi-clipboard',
+      routerLink: ['/espace-appel-offre']
+    },
+    {
+      label: 'Matching CV-AO',
+      icon: 'pi pi-bolt',
+      routerLink: ['/matching-cvao']
+    },
+    {
+      label: 'Visualisation',
+      icon: 'pi pi-chart-bar',
+      routerLink: ['/visualisation']
+    },
+    {
+      label: 'Synthèse graphique',
+      icon: 'pi pi-chart-pie',
+      routerLink: ['/synthese-graphique']
+    },
+  ];
+  }
 
 }
