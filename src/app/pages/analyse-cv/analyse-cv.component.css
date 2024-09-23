@@ -1,0 +1,7 @@
+.analyse-cv{
+  .breadcrumb{
+    display: flex;
+    align-items: center;
+    color: #1010FE;
+  }
+}

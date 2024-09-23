@@ -4,7 +4,12 @@ export const routes: Routes = [
   {
     path: 'espace-cv',
     loadComponent: () => import('./pages/espace-cv/espace-cv.component').then(m=> m.EspaceCvComponent)
- 
+
+  },
+  {
+    path: 'analyse-cv',
+    loadComponent: () => import('./pages/analyse-cv/analyse-cv.component').then(m=> m.AnalyseCvComponent)
+
   },
   {
     path: 'espace-appel-offre',
