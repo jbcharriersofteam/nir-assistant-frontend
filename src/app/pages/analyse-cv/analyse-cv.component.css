@@ -1,7 +1,36 @@
-.analyse-cv{
-  .breadcrumb{
+.analyse-cv {
+  .breadcrumb {
     display: flex;
     align-items: center;
-    color: #1010FE;
+    color: #1010fe;
+    font-weight: 600;
+    font-size: 14px;
+    p {
+      margin-left: 5px;
+    }
   }
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  ::ng-deep .p-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00008c;
+  }
+  .grid{
+    margin: 0;
+  }
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0000ff;
+    margin-right: 1rem;
+  }
+  .functions {
+    p-tag{
+      margin: 0 3px;
+    }
+  }
+
 }

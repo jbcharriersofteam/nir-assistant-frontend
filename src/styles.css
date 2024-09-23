@@ -9,3 +9,41 @@ body {
   height: 100%;
   background-color: #f9f7f7;
 }
+
+.function-tag {
+  span.p-tag {
+    background-color: #eff2ff;
+    color: #00008c;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+}
+
+.capabilities {
+  margin: 1rem 0;
+  color: #00008c;
+  font-weight: 500;
+  font-size: 16px;
+  i {
+    margin-right: 8px;
+  }
+}
+
+.skills-tag {
+  margin: 0 3px;
+  .p-tag {
+    background-color: #eff2ff;
+    color: #335bfa;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+}
+
+.skills-tag.red {
+  .p-tag {
+    background-color: #f9f1fd;
+    color: #a13ad4;
+  }
+}
