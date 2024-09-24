@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuModule } from 'primeng/menu';
+import { BadgeModule } from 'primeng/badge';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [MenuModule],
+  imports: [MenuModule, BadgeModule, DividerModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

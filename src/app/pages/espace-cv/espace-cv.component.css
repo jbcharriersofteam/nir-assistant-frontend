@@ -1,4 +1,13 @@
-/* .custom-table ::ng-deep .p-paginator {
-  justify-content: flex-start;
+.dropdown-width{
+    width: 331px;
+    height: 40px;
 }
- */
+
+::ng-deep .p-dropdown {
+    width: 331px;
+    height: 40px;
+}
+
+.card-text-blue{
+    padding: 92px 48px 24px 48px;
+}

@@ -11,16 +11,6 @@
   background-color: transparent !important; 
 }
 
-/* width: Fill (208px)px;
-height: Hug (40px)px;
-padding: 12px 16px 12px 16px;
-
-border-radius: 28px 0px 0px 0px;
-opacity: 0px; */
-
-
-
-
 ::ng-deep .p-menuitem-content {
   background-color: transparent !important;
 }
@@ -75,4 +65,9 @@ opacity: 0px; */
   color: #0000cc;
 }
 
-
+.name {
+  color: #3970E6;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.1px;
+}

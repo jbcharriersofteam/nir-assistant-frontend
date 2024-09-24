@@ -10,9 +10,10 @@ export class CallCVService {
 
   constructor(private http: HttpClient) { }
 
-  callDeveloperCv(): Observable<Developer> {
-    return this.http.get<Developer>('https://kckwuprse9.execute-api.eu-west-3.amazonaws.com/v1/cv-analyzer');
+  callDeveloperCv(): Observable<any> {
+    return this.http.get<Developer>('https://v7sk3jpn45.execute-api.eu-west-3.amazonaws.com/v1/cv-analyzer');
   }
+
 }
 
 

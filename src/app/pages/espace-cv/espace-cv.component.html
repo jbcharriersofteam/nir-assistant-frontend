@@ -1,50 +1,53 @@
 <div class="espace-cv">
+  <h2>Espace CV </h2>
 
+  <div *ngIf="data">
+   ***** {{ data }} ****
 
-  <h2>Espace CV</h2>
+  </div>
+
   <p-card styleClass="card-text-blue">
     <div class="flex align-items-center justify-content-between flex-wrap">
-
-      <div class="upload-container">
+      <div class="upload-container" style="width: 518px">
         <h4>Télécharger un CV</h4>
         <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
           maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
           <ng-template pTemplate="content">
             <div class="flex align-items-center">
-              <i class="pi pi-cloud-upload upload-icon mr-2"></i>
+              <i class="pi pi-cloud-upload upload-icon"></i>
               <span class="upload-text mr-2"> Déposez votre fichier ici</span>
-              <p-button label="Parcourir les fichiers" styleClass="p-button-outlined" (click)="triggerFileSelect()">
+              <p-button label="Parcourir les fichiers" styleClass="p-button-outlined upload-files"
+                (click)="triggerFileSelect()">
               </p-button>
             </div>
           </ng-template>
         </p-fileUpload>
         <small class="file-limit">Fichier limité à 2MB ou format PDF uniquement</small>
       </div>
-
       <div>
         <h4>OU</h4>
       </div>
-
-      <div>
+      <div style="width: 363px;">
         <h4>Récupérer un CV DC-Gen</h4>
         <p>Veuillez choisir un nom dans la liste</p>
-        <div class="card flex justify-content-center">
+        <div class="flex justify-content-left dropdown-width">
           <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sélectionner" />
         </div>
       </div>
     </div>
-
+    <p-divider />
+    <div class="flex justify-content-end mt-2">
+      <p-button> Enregistrer le cv</p-button>
+    </div>
   </p-card>
 
-
   <p-card styleClass="card-text-blue">
-
     <h2>CV enregistrés</h2>
-    <!-- [tableStyle]="{ 'min-width': '75rem' }" -->
-
     <div class="flex justify-content-end">
-      <i class="pi pi-search"></i>
-      <input pInputText type="text" (input)="dt2.filterGlobal('name', 'contains')" placeholder="Search" />
+      <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-search" />
+        <input type="text" (input)="dt2.filterGlobal('name', 'contains')" pInputText placeholder="Search" />
+      </p-iconField>
     </div>
     <p-table #dt2 class="custom-table" [value]="customers" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
       [paginator]="true" [globalFilterFields]="['name']">
@@ -64,8 +67,7 @@
           <td> profil </td>
           <td> exp </td>
           <td> 05/12/2020 </td>
-          <td> <p-tag value="aws" class="mr-2" /> <p-tag value="python" /> <p-tag value="spark" /> </td>
-
+          <td> <p-tag value="aws" class="mr-2" /> <p-tag value="python" class="mr-2" /> <p-tag value="spark" /> </td>
           <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined"
               (click)="triggerFileSelect()">
             </p-button> </td>

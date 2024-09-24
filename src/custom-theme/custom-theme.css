@@ -2114,12 +2114,12 @@
 
   .p-button {
     color: #ffffff;
-    background: #3B82F6;
+    background: #0000FF;
     border: 1px solid #3B82F6;
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    border-radius: 6px;
+    border-radius: 22px;
     outline-color: transparent;
   }
   .p-button:not(:disabled):hover {
@@ -2134,19 +2134,18 @@
   }
   .p-button.p-button-outlined {
     background-color: transparent;
-    color: #3B82F6;
+    color: #0000FF;
     border: 1px solid;
-    border-radius: 22px;
     font-size: 14px;
   }
   .p-button.p-button-outlined:not(:disabled):hover {
     background: rgba(59, 130, 246, 0.04);
-    color: #3B82F6;
+    color: #0000FF;
     border: 1px solid;
   }
   .p-button.p-button-outlined:not(:disabled):active {
     background: rgba(59, 130, 246, 0.16);
-    color: #3B82F6;
+    color: #0000FF;
     border: 1px solid;
   }
   .p-button.p-button-outlined.p-button-plain {
@@ -2163,17 +2162,17 @@
   }
   .p-button.p-button-text {
     background-color: transparent;
-    color: #3B82F6;
+    color: #0000FF;
     border-color: transparent;
   }
   .p-button.p-button-text:not(:disabled):hover {
     background: rgba(59, 130, 246, 0.04);
-    color: #3B82F6;
+    color: #0000FF;
     border-color: transparent;
   }
   .p-button.p-button-text:not(:disabled):active {
     background: rgba(59, 130, 246, 0.16);
-    color: #3B82F6;
+    color: #0000FF;
     border-color: transparent;
   }
   .p-button.p-button-text.p-button-plain {
@@ -2212,7 +2211,7 @@
     min-width: 1rem;
     height: 1rem;
     line-height: 1rem;
-    color: #3B82F6;
+    color: #0000FF;
     background-color: #ffffff;
   }
   .p-button.p-button-raised {
@@ -3991,7 +3990,7 @@
     color: #6b7280;
   }
   .p-card .p-card-content {
-    padding: 0;
+    padding: 10px 48px 24px 48px;
   }
   .p-card .p-card-footer {
     padding: 1.25rem 0 0 0;
@@ -4656,7 +4655,7 @@
   }
   .p-fileupload .p-fileupload-content {
     background: #ffffff;
-    padding: 2rem 1rem;
+    padding: 10px 0px 0px 15px;
     border: 1px solid #e5e7eb;
     color: #666D92;
     border-radius: 8px;
@@ -4666,6 +4665,8 @@
     line-height: 18.9px;
     letter-spacing: 0.01em;
     text-align: left; 
+    width: 486px;
+    height: 64px;
   }
   .p-fileupload .p-fileupload-content.p-fileupload-highlight {
     border-color: 1px dashed #3B82F6;
@@ -6227,7 +6228,7 @@
     color: #ffffff;
   }
   .p-badge.p-badge-info {
-    background-color: #0ea5e9;
+    background-color: #3970E6;
     color: #ffffff;
   }
   .p-badge.p-badge-warning {
@@ -6243,6 +6244,7 @@
     min-width: 2.25rem;
     height: 2.25rem;
     line-height: 2.25rem;
+    border-radius: 50%;
   }
   .p-badge.p-badge-xl {
     font-size: 1.5rem;
