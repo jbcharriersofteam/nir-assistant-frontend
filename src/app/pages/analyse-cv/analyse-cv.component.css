@@ -18,7 +18,7 @@
     font-weight: 700;
     color: #00008c;
   }
-  .grid{
+  .grid {
     margin: 0;
   }
   .name {
@@ -28,9 +28,42 @@
     margin-right: 1rem;
   }
   .functions {
-    p-tag{
+    p-tag {
       margin: 0 3px;
     }
   }
 
+  ::ng-deep .askIa .p-card {
+    background-color: #f9f7f7;
+    color: #00008c;
+  }
+
+  ::ng-deep .p-card-content .chat .question span,
+  ::ng-deep .p-card-content .chat .response span {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+  }
+  ::ng-deep .p-card-content .chat .question {
+    text-align: end;
+  }
+  ::ng-deep .p-card-content .chat .question span {
+    color: #000;
+    background-color: #eff2ff;
+  }
+  ::ng-deep .p-card-content .chat .response {
+    text-align: start;
+  }
+  ::ng-deep .p-card-content .chat .response span {
+    color: #fff;
+    background-color: #00008c;
+  }
+  ::ng-deep .askIa .p-card .line {
+    border: 1px solid lightgray;
+    margin: 2rem 0;
+  }
+
+  ::ng-deep .askIa .p-card .askInput input {
+    width: 100%;
+  }
 }

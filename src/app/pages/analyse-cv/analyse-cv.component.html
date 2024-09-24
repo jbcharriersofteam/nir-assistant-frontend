@@ -74,9 +74,28 @@
       </div>
     </div>
     <div class="details grid">
-      <div *ngFor="let item of detailsData" class="col-{{item.length}}">
-        <app-details-card  [data]="item"></app-details-card>
+      <div *ngFor="let item of detailsData" class="col-{{ item.length }}">
+        <app-details-card [data]="item"></app-details-card>
       </div>
     </div>
   </p-card>
+  <p-card header="Demander à l'IA">
+    <p-card class="askIa">
+      <h4>Demander à l'IA</h4>
+      <div class="chat">
+        <div class="question">
+          <span>Ma question ma question ma question ma question ?</span>
+        </div>
+        <div class="response">
+          <span>Réponse de l’IA réponse de l’IA réponse de l’IA</span>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="askInput">
+        <p>Posez vos questions ici pour en savoir plus</p>
+        <input pInputText placeholder="Écrire ici" />
+      </div>
+    </p-card>
+  </p-card>
+  <p-card header="Fichiers"></p-card>
 </div>
