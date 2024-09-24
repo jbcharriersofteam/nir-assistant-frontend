@@ -43,7 +43,7 @@
       </div>
       <div class="col">
         <div class="capabilities align-content-center">
-          <i class="pi pi-hammer"></i>
+          <i class="pi pi-wrench"></i>
           <span>Outils principaux : </span
           ><span
             ><p-tag class="skills-tag" value="AWS" /><p-tag
@@ -54,7 +54,7 @@
           /></span>
         </div>
         <div class="capabilities align-content-center">
-          <i class="pi pi-hammer"></i>
+          <i class="pi pi-wrench"></i>
           <span>Outils secondaires : </span
           ><span
             ><p-tag class="skills-tag" value="Docker" /><p-tag
@@ -63,7 +63,7 @@
           /></span>
         </div>
         <div class="capabilities align-content-center">
-          <i class="pi pi-hammer"></i>
+          <i class="pi pi-book"></i>
           <span>Méthodologies : </span
           ><span
             ><p-tag class="skills-tag red" value="Agile" /><p-tag
@@ -71,6 +71,11 @@
               value="Kanban" /><p-tag class="skills-tag red" value="SCRUM"
           /></span>
         </div>
+      </div>
+    </div>
+    <div class="details grid">
+      <div *ngFor="let item of detailsData" class="col-{{item.length}}">
+        <app-details-card  [data]="item"></app-details-card>
       </div>
     </div>
   </p-card>
