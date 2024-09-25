@@ -16,17 +16,17 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
      this.items = [
     {
-      label: 'Espace CV',
-      icon: 'pi pi-file',
+      label: 'Base des candidats',
+      icon: 'pi pi-users',
       routerLink: ['/espace-cv']
     },
     {
-      label: 'Espace Appel d’offre',
-      icon: 'pi pi-clipboard',
+      label: 'Les appels d’offre',
+      icon: 'pi pi-file',
       routerLink: ['/espace-appel-offre']
     },
     {
-      label: 'Matching CV-AO',
+      label: 'Matching',
       icon: 'pi pi-bolt',
       routerLink: ['/matching-cvao']
     },

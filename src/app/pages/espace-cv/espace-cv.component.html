@@ -1,12 +1,8 @@
-<div class="espace-cv">
-  <h2>Espace CV </h2>
-
-  <div *ngIf="data">
-   ***** {{ data }} ****
-
-  </div>
-
+<div class="base-candidat">
+  <h1>Base des candidats</h1>
   <p-card styleClass="card-text-blue">
+    <h2>Analyser un candidat</h2>
+    <p>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</p>
     <div class="flex align-items-center justify-content-between flex-wrap">
       <div class="upload-container" style="width: 518px">
         <h4>Télécharger un CV</h4>
@@ -41,8 +37,37 @@
     </div>
   </p-card>
 
+  <div class="analyser-candidat">
+    <h2>Analyser un candidat</h2>
+    <p>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</p>
+    
+    <!-- TabView pour basculer entre les deux onglets -->
+    <p-tabView>
+      <!-- Onglet Télécharger un fichier -->
+      <p-tabPanel header="Télécharger un fichier">
+        <!-- <p-fileUpload name="file" url="./upload" mode="basic" accept=".pdf,.doc,.docx" maxFileSize="1000000"></p-fileUpload> -->
+         <h1>View 1</h1>
+      </p-tabPanel>
+  
+      <!-- Onglet Sélectionner dans la liste -->
+      <p-tabPanel header="Sélectionner dans la liste">
+        <h1>view2</h1>
+      </p-tabPanel>
+    </p-tabView>
+
+    <p-tabView>
+      <p-tabPanel header="Tab 1" [headerStyle]="{'background-color': 'blue', 'color': 'white'}">
+        Contenu de la tab 1
+      </p-tabPanel>
+      <p-tabPanel header="Tab 2" [headerStyle]="{'background-color': 'red', 'color': 'white'}">
+        Contenu de la tab 2
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+
   <p-card styleClass="card-text-blue">
-    <h2>CV enregistrés</h2>
+    <h2>Candidats analysés</h2>
+    <p>Listes des candidats déjà analysés par NIR Assistant</p>
     <div class="flex justify-content-end">
       <p-iconField iconPosition="left">
         <p-inputIcon styleClass="pi pi-search" />

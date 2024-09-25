@@ -10,13 +10,13 @@ import { HttpClient } from '@angular/common/http';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
-import { CallCVService } from '../../core/services/call-cv.service';
 import { NgIf } from '@angular/common';
+import { TabViewModule } from 'primeng/tabview';
 
 @Component({
   selector: 'app-espace-cv',
   standalone: true,
-  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf ],
+  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule ],
   templateUrl: './espace-cv.component.html',
   styleUrl: './espace-cv.component.css'
 })
@@ -29,11 +29,9 @@ export class EspaceCvComponent implements OnInit {
 
   activityValues: number[] = [0, 100];
 
-  constructor( private callService: CallCVService) {}
+  constructor() {}
 
   ngOnInit() {
-
-    // this.callService.callDeveloperCv().subscribe(data => this.data = JSON.parse(data));
       this.customers = [
           { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
           { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
@@ -58,8 +56,6 @@ export class EspaceCvComponent implements OnInit {
       fileInputElement.click();
     }
   }
-
-
 }
 
 

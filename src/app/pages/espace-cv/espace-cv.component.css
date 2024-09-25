@@ -11,3 +11,32 @@
 .card-text-blue{
     padding: 92px 48px 24px 48px;
 }
+
+/* -------------------- */
+
+
+.p-tabview {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .p-tabview .p-tabview-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .p-tabview .p-tabview-nav li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .p-tabview .p-tabview-nav li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .p-tabview .p-tabview-nav li a:hover {
+    background-color: #444;
+  }
