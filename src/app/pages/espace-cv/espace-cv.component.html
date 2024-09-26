@@ -27,7 +27,7 @@
         <h4>Récupérer un CV DC-Gen</h4>
         <p>Veuillez choisir un nom dans la liste</p>
         <div class="flex justify-content-left dropdown-width">
-          <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sélectionner" />
+          <p-dropdown [options]="listCvToAnalyse" [(ngModel)]="selectedCv" optionLabel="Key" placeholder="Sélectionner" />
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <input type="text" (input)="dt2.filterGlobal('name', 'contains')" pInputText placeholder="Search" />
       </p-iconField>
     </div>
-    <p-table #dt2 class="custom-table" [value]="customers" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+    <p-table #dt2 class="custom-table" [value]="listCvToAnalyse" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
       [paginator]="true" [globalFilterFields]="['name']">
       <ng-template pTemplate="header">
         <tr>
@@ -56,11 +56,11 @@
           <th>Action</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-customer>
+      <ng-template pTemplate="body" let-profil>
         <tr>
-          <td> nom </td>
-          <td> <p-tag class="skills-tag mr-2" value="Docker"/> <p-tag class="skills-tag mr-2" value="aws"/> <p-tag class="skills-tag mr-2" value="PHP"/> </td>
-          <td> 05/12/2020 </td>
+          <td> {{profil.id}} </td>
+          <td> <p-tag class="skills-tag mr-2" [value]="profil.profil"/></td>
+          <td> {{profil.date}} </td>
           <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect()"></p-button> </td>
         </tr>
       </ng-template>

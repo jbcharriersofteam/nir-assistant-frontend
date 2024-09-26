@@ -7,11 +7,20 @@ import {Observable} from "rxjs";
 })
 export class CandidatService {
 
+  private API: string = "https://v7sk3jpn45.execute-api.eu-west-3.amazonaws.com/v1/"
+
   constructor(private http: HttpClient) { }
 
-  getAllAnalysedCandidats(): Observable<any> {
-    return this.http.get<any>('https://v7sk3jpn45.execute-api.eu-west-3.amazonaws.com/v1/cv-list');
+  getCvList(): Observable<any> {
+    return this.http.get<any>(this.API + 'cv-list');
   }
+  uploadCv(){
+    return this.http.get<any>(this.API + 'cv-list');
+  }
+  getAllAnalysedCandidats(): Observable<any> {
+    return this.http.get<any>(this.API + 'scan-cv-table');
+  }
+
 
 }
 

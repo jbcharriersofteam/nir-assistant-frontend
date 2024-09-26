@@ -23,28 +23,24 @@ import { CandidatService } from '../../core/services/candidats.service';
   styleUrl: './espace-cv.component.css'
 })
 export class EspaceCvComponent implements OnInit {
-  cities: City[] | undefined;
-  selectedCity: City | undefined;
-  data:any;
-  customers: any[] = [];
+
   public analyseService = inject(HttpClient);
-
-  activityValues: number[] = [0, 100];
-
   router = inject(Router)
 
+  selectedCv: any | undefined;
   listCandidats: any [] = [];
+  listCvToAnalyse: any [] = [];
 
   constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => this.listCandidats = data)
+    this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
+    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data})
   }
 
   onFileSelect(event: any) {
     const file = event.files[0];
     console.log('File selected:', file);
-
   }
 
   triggerFileSelect() {
@@ -58,9 +54,4 @@ export class EspaceCvComponent implements OnInit {
   redirect(){
     this.router.navigate(['/analyse-cv']);
   }
-}
-
-interface City {
-  name: string;
-  code: string;
 }
