@@ -1,69 +1,31 @@
-/* .analyse-cv {
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    color: #1010fe;
-    font-weight: 600;
-    font-size: 14px;
-    p {
-      margin-left: 5px;
-    }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  color: #1010fe;
+  font-weight: 600;
+  font-size: 14px;
+  p {
+    margin-left: 5px;
   }
-  h2 {
-    font-weight: 700;
-    font-size: 24px;
-  }
-  ::ng-deep .p-card-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #00008c;
-  }
-  .grid {
-    margin: 0;
-  }
-  .name {
-    font-size: 24px;
-    font-weight: 700;
-    color: #0000ff;
-    margin-right: 1rem;
-  }
-  .functions {
-    p-tag {
-      margin: 0 3px;
-    }
-  }
+}
 
-  ::ng-deep .askIa .p-card {
-    background-color: #f9f7f7;
-    color: #00008c;
-  }
+.appels-doffres-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  ::ng-deep .p-card-content .chat .question span,
-  ::ng-deep .p-card-content .chat .response span {
-    border-radius: 5px;
-    display: inline-block;
-    padding: 5px 10px;
-  }
-  ::ng-deep .p-card-content .chat .question {
-    text-align: end;
-  }
-  ::ng-deep .p-card-content .chat .question span {
-    color: #000;
-    background-color: #eff2ff;
-  }
-  ::ng-deep .p-card-content .chat .response {
-    text-align: start;
-  }
-  ::ng-deep .p-card-content .chat .response span {
-    color: #fff;
-    background-color: #00008c;
-  }
-  ::ng-deep .askIa .p-card .line {
-    border: 1px solid lightgray;
-    margin: 2rem 0;
-  }
+.appels-doffres-header {
+  width: 100%;
+}
 
-  ::ng-deep .askIa .p-card .askInput input {
-    width: 100%;
-  }
-} */
+.appels-doffres-title {
+  color: var(--Text-Ultramarine, #00008c);
+  font: 700 20px/1.4 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.appels-doffres-description {
+  color: var(--Text-Lynch, #666d92);
+  font: 500 16px/1 Barlow, sans-serif;
+  margin-top: 4px;
+}
