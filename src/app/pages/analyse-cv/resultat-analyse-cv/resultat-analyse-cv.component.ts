@@ -20,18 +20,15 @@ export class ResultatAnalyseCvComponent {
     icon: 'pi-thumbs-up',
     title: 'Points forts :',
     subtitle: 'Expérience variée dans différents secteurs (médias, leasing..)',
-    length: 6
   },
   {
     icon: 'pi-chart-line',
     title: 'Points d’amélioration :',
     subtitle: 'Renforcer les compétences en dataviz, acquérir des certifications...',
-    length: 6
   },
   {
     icon: 'pi-list-check',
     title: 'Recommandations :',
     subtitle: 'Mettre en avant les projets cloud/Data les plus significatifs ...',
-    length: 12
   }];
 }

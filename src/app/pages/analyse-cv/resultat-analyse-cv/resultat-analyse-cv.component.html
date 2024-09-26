@@ -11,72 +11,84 @@
     </div>
   </div>
   <div class="candidate-details grid">
-    <section class="candidate-info col-12">
-      <p class="experience">Expérience : 6 ans</p>
-      <div class="cv-attractiveness">
-        <span>Attractivité du CV :</span>
-        <div class="star-rating">
-          <p-rating [cancel]="false" [readonly]="true" />
+    <div class="col-7">
+      <section class="candidate-info col-12">
+        <p class="experience">Expérience : 6 ans</p>
+        <div class="cv-attractiveness">
+          <span>Attractivité du CV :</span>
+          <div class="star-rating">
+            <p-rating [cancel]="false" [readonly]="true" />
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="skills-section">
-      <div class="skill-item col-12">
-        <i class="pi pi-shopping-bag"></i>
-        <div>
-          <h2 class="skill-title">Compétences métier</h2>
-          <p class="skill-description">
-            Transformation numérique, Cash management, Compliance, Risque de
-            marché
-          </p>
+      </section>
+      <section class="skills-section col-12">
+        <div class="skill-item">
+          <i class="pi pi-shopping-bag"></i>
+          <div>
+            <h2 class="skill-title">Compétences métier</h2>
+            <p class="skill-description">
+              Transformation numérique, Cash management, Compliance, Risque de
+              marché
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="skill-item col-12">
-        <i class="pi pi-file-check"></i>
-        <div>
-          <h2 class="skill-title">Livrables</h2>
-          <p class="skill-description">Cartographie data, Etude faisabilité, Cahier des charges, Audit RGPD,
-            Diagramme d'architecture data, User Story</p>
+        <div class="skill-item">
+          <i class="pi pi-file-check"></i>
+          <div>
+            <h2 class="skill-title">Livrables</h2>
+            <p class="skill-description">
+              Cartographie data, Etude faisabilité, Cahier des charges, Audit
+              RGPD, Diagramme d'architecture data, User Story
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-  <div class="grid capabilities-container">
-    <div class="col">
-      <div class="capabilities align-content-center">
-        <i class="pi pi-wrench"></i>
-        <span>Outils principaux : </span
-        ><span
-          ><p-tag class="skills-tag" value="AWS" /><p-tag
-            class="skills-tag"
-            value="GCP" /><p-tag class="skills-tag" value="Azure" /><p-tag
-            class="skills-tag"
-            value="Python"
-        /></span>
-      </div>
-      <div class="capabilities align-content-center">
-        <i class="pi pi-wrench"></i>
-        <span>Outils secondaires : </span
-        ><span
-          ><p-tag class="skills-tag" value="Docker" /><p-tag
-            class="skills-tag"
-            value="Kafka" /><p-tag class="skills-tag" value="Dataiku"
-        /></span>
-      </div>
-      <div class="capabilities align-content-center">
-        <i class="pi pi-book"></i>
-        <span>Méthodologies : </span
-        ><span
-          ><p-tag class="skills-tag red" value="Agile" /><p-tag
-            class="skills-tag red"
-            value="Kanban" /><p-tag class="skills-tag red" value="SCRUM"
-        /></span>
-      </div>
+        <div class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils principaux</h2>
+            <div class="tag-container">
+              <span
+                ><p-tag class="skills-tag red" value="AWS" /><p-tag
+                  class="skills-tag red"
+                  value="GCP" /><p-tag
+                  class="skills-tag red"
+                  value="Azure" /><p-tag class="skills-tag red" value="Python"
+              /></span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils secondaires</h2>
+            <div class="tag-container">
+              <span
+                ><p-tag class="skills-tag red" value="Docker" /><p-tag
+                  class="skills-tag red"
+                  value="Kafka" /><p-tag class="skills-tag red" value="Dataiku"
+              /></span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Méthodologies</h2>
+            <div class="tag-container">
+              <span
+                ><p-tag class="skills-tag" value="Agile" /><p-tag
+                  class="skills-tag"
+                  value="Kanban" /><p-tag class="skills-tag" value="SCRUM"
+              /></span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-  <div class="details grid">
-    <div *ngFor="let item of detailsData" class="col-{{ item.length }}">
-      <app-details-card [data]="item"></app-details-card>
+    <div class="details col-5">
+      <div *ngFor="let item of detailsData">
+        <app-details-card [data]="item"></app-details-card>
+      </div>
     </div>
   </div>
 </p-card>
