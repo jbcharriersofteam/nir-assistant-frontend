@@ -1,0 +1,109 @@
+<p-card class="candidate-card">
+  <header class="candidate-header grid col">
+    <h1 class="candidate-name">BOATI Leïla</h1>
+    <span class="candidate-score">90</span>
+  </header>
+  <div class="grid">
+    <div class="functions align-content-center">
+      <p-tag class="function-tag" value="Big Data Engineer" />
+      <p-tag class="function-tag" value="Proxy Product Owner Data" />
+      <p-tag class="function-tag" value="Data Analyst" />
+    </div>
+  </div>
+  <div class="candidate-details grid">
+    <section class="candidate-info col-12">
+      <p class="experience">Expérience : 6 ans</p>
+      <div class="cv-attractiveness">
+        <span>Attractivité du CV :</span>
+        <div class="star-rating">
+          <p-rating [cancel]="false" [readonly]="true" />
+        </div>
+      </div>
+    </section>
+    <section class="skills-section">
+      <div class="skill-item col-12">
+        <i class="pi pi-shopping-bag"></i>
+        <div>
+          <h2 class="skill-title">Compétences métier</h2>
+          <p class="skill-description">
+            Transformation numérique, Cash management, Compliance, Risque de
+            marché
+          </p>
+        </div>
+      </div>
+      <div class="skill-item col-12">
+        <i class="pi pi-file-check"></i>
+        <div>
+          <h2 class="skill-title">Livrables</h2>
+          <p class="skill-description">Cartographie data, Etude faisabilité, Cahier des charges, Audit RGPD,
+            Diagramme d'architecture data, User Story</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="grid capabilities-container">
+    <div class="col">
+      <div class="capabilities align-content-center">
+        <i class="pi pi-compass"></i>
+        <span>Expérience : </span><span>6 ans</span>
+      </div>
+      <div class="capabilities align-content-center">
+        <i class="pi pi-thumbs-up"></i>
+        <span>Attractivité du CV : </span
+        ><span><p-rating [cancel]="false" [readonly]="true" /></span>
+      </div>
+      <div class="capabilities align-content-center">
+        <i class="pi pi-shopping-bag"></i>
+        <span>Compétences métier : </span
+        ><span
+          >Transformation numérique, Cash management, Compliance, Risque de
+          marché</span
+        >
+      </div>
+      <div class="capabilities align-content-center">
+        <i class="pi pi-file-check"></i>
+        <span>Livrables : </span
+        ><span
+          >Cartographie data, Etude faisabilité, Cahier des charges, Audit RGPD,
+          Diagramme d'architecture data, User Story</span
+        >
+      </div>
+    </div>
+    <div class="col">
+      <div class="capabilities align-content-center">
+        <i class="pi pi-wrench"></i>
+        <span>Outils principaux : </span
+        ><span
+          ><p-tag class="skills-tag" value="AWS" /><p-tag
+            class="skills-tag"
+            value="GCP" /><p-tag class="skills-tag" value="Azure" /><p-tag
+            class="skills-tag"
+            value="Python"
+        /></span>
+      </div>
+      <div class="capabilities align-content-center">
+        <i class="pi pi-wrench"></i>
+        <span>Outils secondaires : </span
+        ><span
+          ><p-tag class="skills-tag" value="Docker" /><p-tag
+            class="skills-tag"
+            value="Kafka" /><p-tag class="skills-tag" value="Dataiku"
+        /></span>
+      </div>
+      <div class="capabilities align-content-center">
+        <i class="pi pi-book"></i>
+        <span>Méthodologies : </span
+        ><span
+          ><p-tag class="skills-tag red" value="Agile" /><p-tag
+            class="skills-tag red"
+            value="Kanban" /><p-tag class="skills-tag red" value="SCRUM"
+        /></span>
+      </div>
+    </div>
+  </div>
+  <div class="details grid">
+    <div *ngFor="let item of detailsData" class="col-{{ item.length }}">
+      <app-details-card [data]="item"></app-details-card>
+    </div>
+  </div>
+</p-card>

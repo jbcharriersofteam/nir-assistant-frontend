@@ -1,0 +1,141 @@
+::ng-deep .p-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00008c;
+}
+.grid {
+  margin: 0;
+}
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0000ff;
+  margin-right: 1rem;
+}
+.functions {
+  p-tag {
+    margin: 0 3px;
+  }
+}
+
+::ng-deep .askIa .p-card {
+  background-color: #f9f7f7;
+  color: #00008c;
+}
+
+::ng-deep .p-card-content .chat .question span,
+::ng-deep .p-card-content .chat .response span {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+}
+::ng-deep .p-card-content .chat .question {
+  text-align: end;
+}
+::ng-deep .p-card-content .chat .question span {
+  color: #000;
+  background-color: #eff2ff;
+}
+::ng-deep .p-card-content .chat .response {
+  text-align: start;
+}
+::ng-deep .p-card-content .chat .response span {
+  color: #fff;
+  background-color: #00008c;
+}
+::ng-deep .askIa .p-card .line {
+  border: 1px solid lightgray;
+  margin: 2rem 0;
+}
+
+::ng-deep .askIa .p-card .askInput input {
+  width: 100%;
+}
+
+
+
+.candidate-card {
+  /* border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(102, 109, 146, 0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; */
+}
+
+.candidate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.candidate-name {
+  color: #00f;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.42px;
+}
+
+.candidate-score {
+  background-color: #f4faf6;
+  color: #4a801a;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.candidate-details {
+  margin-top: 1rem;
+}
+
+.candidate-info {
+  display: flex;
+  gap: 10rem;
+}
+
+.experience {
+  color: #00008c;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cv-attractiveness {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.skills-section, .evaluation-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-item, .evaluation-item {
+  display: flex;
+  gap: 8px;
+}
+
+.skill-icon, .evaluation-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.skill-title, .evaluation-title {
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+.skill-description, .evaluation-description {
+  color: #00008c;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 4px 0;
+}
