@@ -10,15 +10,6 @@ body {
   background-color: #f9f7f7;
 }
 
-.upload-icon {
-  width: 24px;
-  height: 20px;
-  color: #3970e6;
-}
-.upload-files{
-  margin-left: 95px;
-}
-
 .upload-text {
   font-weight: 400;
   font-size: 14px;

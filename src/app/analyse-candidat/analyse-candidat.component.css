@@ -1,0 +1,130 @@
+.candidate-analysis {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(102, 109, 146, 0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.analysis-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.analysis-title {
+  color: #00008c;
+  font: 700 20px/1.4 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.analysis-description {
+  color: #666d92;
+  font: 500 16px/1 Barlow, sans-serif;
+}
+
+.analysis-tabs {
+  display: flex;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px solid #ededf2;
+  padding: 4px;
+  align-self: center;
+}
+
+.tab-button {
+  font: 500 14px/1 Barlow, sans-serif;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #666d92;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #0000cc;
+  color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.file-upload-form {
+  border: 1px dashed #e5e5fd;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.upload-icon {
+  font-size: 48px;
+  color: #0000FF;
+}
+
+.upload-instruction {
+  color: #0000FF;
+  font: 400 16px Barlow, sans-serif;
+  letter-spacing: 0.16px;
+}
+
+.upload-alternative {
+  color: #666d92;
+  font: 500 14px/1 Barlow, sans-serif;
+}
+
+.browse-button {
+  font: 600 14px/1 Montserrat, sans-serif;
+  color: #00f;
+  border: 1px solid #00f;
+  border-radius: 24px;
+  padding: 8px 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.file-limit-info {
+  color: #666d92;
+  font: italic 12px/1 Barlow, sans-serif;
+  letter-spacing: 0.12px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ededf2;
+  margin: 16px 0;
+}
+
+.analysis-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start-analysis-button {
+  font: 600 14px/1 Montserrat, sans-serif;
+  color: #c2c5d3;
+  background-color: #ededf2;
+  border: 1px solid #ededf2;
+  border-radius: 24px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.subtitle {
+  color: #666d92;
+  font: 500 16px/1 Barlow, sans-serif;
+  margin-top: 4px;
+}
+
+
+@media (max-width: 991px) {
+
+  .start-analysis-button {
+    padding: 12px 20px;
+  }
+}

@@ -37,34 +37,6 @@
     </div>
   </p-card>
 
-  <div class="analyser-candidat">
-    <h2>Analyser un candidat</h2>
-    <p>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</p>
-    
-    <!-- TabView pour basculer entre les deux onglets -->
-    <p-tabView>
-      <!-- Onglet Télécharger un fichier -->
-      <p-tabPanel header="Télécharger un fichier">
-        <!-- <p-fileUpload name="file" url="./upload" mode="basic" accept=".pdf,.doc,.docx" maxFileSize="1000000"></p-fileUpload> -->
-         <h1>View 1</h1>
-      </p-tabPanel>
-  
-      <!-- Onglet Sélectionner dans la liste -->
-      <p-tabPanel header="Sélectionner dans la liste">
-        <h1>view2</h1>
-      </p-tabPanel>
-    </p-tabView>
-
-    <p-tabView>
-      <p-tabPanel header="Tab 1" [headerStyle]="{'background-color': 'blue', 'color': 'white'}">
-        Contenu de la tab 1
-      </p-tabPanel>
-      <p-tabPanel header="Tab 2" [headerStyle]="{'background-color': 'red', 'color': 'white'}">
-        Contenu de la tab 2
-      </p-tabPanel>
-    </p-tabView>
-  </div>
-
   <p-card styleClass="card-text-blue">
     <h2>Candidats analysés</h2>
     <p>Listes des candidats déjà analysés par NIR Assistant</p>
@@ -78,24 +50,18 @@
       [paginator]="true" [globalFilterFields]="['name']">
       <ng-template pTemplate="header">
         <tr>
-          <th>Nom <p-sortIcon field="name" /></th>
-          <th>Profil <p-sortIcon field="name" /></th>
-          <th>Expérience <p-sortIcon field="name" /></th>
-          <th>Date <p-sortIcon field="name" /></th>
-          <th>Outils principaux <p-sortIcon field="name" /></th>
-          <th> Actions</th>
+          <th>Nom <p-sortIcon field="name"/></th>
+          <th>Profil <p-sortIcon field="name"/></th>
+          <th>Dernière analyse <p-sortIcon field="name"/></th>
+          <th>Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-customer>
         <tr>
           <td> nom </td>
-          <td> profil </td>
-          <td> exp </td>
+          <td> <p-tag class="skills-tag mr-2" value="Docker"/> <p-tag class="skills-tag mr-2" value="aws"/> <p-tag class="skills-tag mr-2" value="PHP"/> </td>
           <td> 05/12/2020 </td>
-          <td> <p-tag value="aws" class="mr-2" /> <p-tag value="python" class="mr-2" /> <p-tag value="spark" /> </td>
-          <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined"
-              (click)="triggerFileSelect()">
-            </p-button> </td>
+          <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect()"></p-button> </td>
         </tr>
       </ng-template>
     </p-table>

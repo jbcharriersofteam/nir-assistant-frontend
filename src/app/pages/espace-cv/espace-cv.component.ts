@@ -12,6 +12,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
+import { Router } from '@angular/router';
+import { CandidatService } from '../../core/services/candidats.service';
 
 @Component({
   selector: 'app-espace-cv',
@@ -29,18 +31,14 @@ export class EspaceCvComponent implements OnInit {
 
   activityValues: number[] = [0, 100];
 
-  constructor() {}
+  router = inject(Router)
+
+  listCandidats: any [] = [];
+
+  constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
-      this.customers = [
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-          { name: 'Amy Elsner', profile: 'amyelsner.png', exp: "4 ans", date: "05/05/2005", tools: "java" },
-      ];
+    this.candidatService.getAllAnalysedCandidats().subscribe(data => this.listCandidats = data)
   }
 
   onFileSelect(event: any) {
@@ -56,8 +54,11 @@ export class EspaceCvComponent implements OnInit {
       fileInputElement.click();
     }
   }
-}
 
+  redirect(){
+    this.router.navigate(['/analyse-cv']);
+  }
+}
 
 interface City {
   name: string;

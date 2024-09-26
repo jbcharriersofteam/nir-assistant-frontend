@@ -1,0 +1,80 @@
+<p-card styleClass="card-text-blue">
+    <!-- <h2>Analyser un candidat</h2>
+    <p>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</p>
+    <div class="flex align-items-center justify-content-between flex-wrap">
+      <div class="upload-container" style="width: 518px">
+        <h4>Télécharger un CV</h4>
+        <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
+          maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
+          <ng-template pTemplate="content">
+            <div class="flex align-items-center">
+              <i class="pi pi-cloud-upload upload-icon"></i>
+              <span class="upload-text mr-2"> Déposez votre fichier ici</span>
+              <p-button label="Parcourir les fichiers" styleClass="p-button-outlined upload-files"
+                (click)="triggerFileSelect()">
+              </p-button>
+            </div>
+          </ng-template>
+        </p-fileUpload>
+        <small class="file-limit">Fichier limité à 2MB ou format PDF uniquement</small>
+      </div>
+      <div>
+        <h4>OU</h4>
+      </div>
+      <div style="width: 363px;">
+        <h4>Récupérer un CV DC-Gen</h4>
+        <p>Veuillez choisir un nom dans la liste</p>
+        <div class="flex justify-content-left dropdown-width">
+          <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sélectionner" />
+        </div>
+      </div>
+    </div>
+    <p-divider />
+    <div class="flex justify-content-end mt-2">
+      <p-button>Lancer l'analyse</p-button>
+    </div> -->
+    <h2>Analyser un candidat</h2>
+    <span>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</span>
+    <p-tabView>
+        <p-tabPanel header="Télécharger un CV" styleClass="tab-button"> 
+            
+    <div class="file-upload-form">
+      <p><i class="pi pi-cloud-upload upload-icon"></i></p>
+      <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
+      <p class="upload-alternative">ou</p>
+      <p-button label="Parcourir les fichiers" styleClass="p-button-outlined" (click)="triggerFileSelect()"></p-button>
+      <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
+      </div>
+
+      </p-tabPanel>
+        <p-tabPanel header="Sélectionner un CV">
+          <div>
+            <p class="subtitle"> Téléchargez ou sélectionnez dans la liste le CV du candidat que vous souhaitez analyser </p>
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sélectionner" />
+          </div>
+        </p-tabPanel>
+    </p-tabView>
+  </p-card>
+
+  
+  
+  
+    <!-- <section class="candidate-analysis">
+      <header class="analysis-header">
+        <h1 class="analysis-title">Analyser un candidat</h1>
+        <p class="analysis-description">Téléchargez ou sélectionnez dans la liste le CV du candidat que vous souhaitez analyser</p>
+      </header>
+    
+      <nav class="analysis-tabs">
+        <button class="tab-button active" (click)="uploadCV()">Télécharger un CV</button>
+        <button class="tab-button" (click)="selectCV()">Sélectionner un CV</button>
+      </nav>
+    
+      <form class="file-upload-form" (submit)="$event.preventDefault()">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/177ec2281df6c1df6f94f16b2cd57d88e5caab6382c6306ab915bf6915b58570?placeholderIfAbsent=true&apiKey=1076505cfb684f1191aee8945136491f" alt="" class="upload-icon" />
+        <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
+        <p class="upload-alternative">ou</p>
+        <button type="button" class="browse-button">Parcourir les fichiers</button>
+        <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
+      </form>
+      </section> -->
