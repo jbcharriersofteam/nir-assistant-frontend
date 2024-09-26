@@ -3,99 +3,28 @@
     <i class="pi pi-angle-left"></i>
     <p>Retour</p>
   </div>
-  <h2>Analyse CV</h2>
-  <p-card header="Résultat de l'analyse">
-    <div class="grid">
-      <div class="name">Leïla Boati</div>
-      <div class="functions align-content-center">
-        <p-tag class="function-tag" value="Big Data Engineer" />
-        <p-tag class="function-tag" value="Proxy Product Owner Data" />
-        <p-tag class="function-tag" value="Data Analyst" />
-      </div>
+  <app-resultat-analyse-cv></app-resultat-analyse-cv>
+  <section class="appels-doffres-container">
+    <header class="appels-doffres-header">
+      <h1 class="appels-doffres-title">Appels d'offres</h1>
+      <p class="appels-doffres-description">
+        Liste des appels d'offres pour lesquels le candidat est pertinent
+      </p>
+    </header>
+    <div class="ao-card-container grid">
+      <ao-card
+      class="col-4"
+        *ngFor="let card of aoCards"
+        [title]="card.title"
+        [quotation]="card.quotation"
+        [id]="card.id"
+        [ref]="card.ref"
+        [client]="card.client"
+        [sector]="card.sector"
+        [profiles]="card.profiles"
+        [startDate]="card.startDate"
+        [duration]="card.duration"
+      ></ao-card>
     </div>
-    <div class="grid capabilities-container">
-      <div class="col">
-        <div class="capabilities align-content-center">
-          <i class="pi pi-compass"></i>
-          <span>Expérience : </span><span>6 ans</span>
-        </div>
-        <div class="capabilities align-content-center">
-          <i class="pi pi-thumbs-up"></i>
-          <span>Attractivité du CV : </span
-          ><span><p-rating [cancel]="false" [readonly]="true" /></span>
-        </div>
-        <div class="capabilities align-content-center">
-          <i class="pi pi-shopping-bag"></i>
-          <span>Compétences métier : </span
-          ><span
-            >Transformation numérique, Cash management, Compliance, Risque de
-            marché</span
-          >
-        </div>
-        <div class="capabilities align-content-center">
-          <i class="pi pi-file-check"></i>
-          <span>Livrables : </span
-          ><span
-            >Cartographie data, Etude faisabilité, Cahier des charges, Audit
-            RGPD, Diagramme d'architecture data, User Story</span
-          >
-        </div>
-      </div>
-      <div class="col">
-        <div class="capabilities align-content-center">
-          <i class="pi pi-wrench"></i>
-          <span>Outils principaux : </span
-          ><span
-            ><p-tag class="skills-tag" value="AWS" /><p-tag
-              class="skills-tag"
-              value="GCP" /><p-tag class="skills-tag" value="Azure" /><p-tag
-              class="skills-tag"
-              value="Python"
-          /></span>
-        </div>
-        <div class="capabilities align-content-center">
-          <i class="pi pi-wrench"></i>
-          <span>Outils secondaires : </span
-          ><span
-            ><p-tag class="skills-tag" value="Docker" /><p-tag
-              class="skills-tag"
-              value="Kafka" /><p-tag class="skills-tag" value="Dataiku"
-          /></span>
-        </div>
-        <div class="capabilities align-content-center">
-          <i class="pi pi-book"></i>
-          <span>Méthodologies : </span
-          ><span
-            ><p-tag class="skills-tag red" value="Agile" /><p-tag
-              class="skills-tag red"
-              value="Kanban" /><p-tag class="skills-tag red" value="SCRUM"
-          /></span>
-        </div>
-      </div>
-    </div>
-    <div class="details grid">
-      <div *ngFor="let item of detailsData" class="col-{{ item.length }}">
-        <app-details-card [data]="item"></app-details-card>
-      </div>
-    </div>
-  </p-card>
-  <p-card header="Demander à l'IA">
-    <p-card class="askIa">
-      <h4>Demander à l'IA</h4>
-      <div class="chat">
-        <div class="question">
-          <span>Ma question ma question ma question ma question ?</span>
-        </div>
-        <div class="response">
-          <span>Réponse de l’IA réponse de l’IA réponse de l’IA</span>
-        </div>
-      </div>
-      <div class="line"></div>
-      <div class="askInput">
-        <p>Posez vos questions ici pour en savoir plus</p>
-        <input pInputText placeholder="Écrire ici" />
-      </div>
-    </p-card>
-  </p-card>
-  <p-card header="Fichiers"></p-card>
+  </section>
 </div>
