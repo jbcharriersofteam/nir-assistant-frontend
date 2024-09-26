@@ -18,24 +18,40 @@ import { CandidatService } from '../../core/services/candidats.service';
 @Component({
   selector: 'app-espace-cv',
   standalone: true,
-  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule ],
+  imports: [
+    CardModule,
+    FileUploadModule,
+    DividerModule,
+    DropdownModule,
+    FormsModule,
+    TableModule,
+    TagModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule,
+    NgIf,
+    TabViewModule,
+  ],
   templateUrl: './espace-cv.component.html',
-  styleUrl: './espace-cv.component.css'
+  styleUrl: './espace-cv.component.css',
 })
 export class EspaceCvComponent implements OnInit {
-
   public analyseService = inject(HttpClient);
-  router = inject(Router)
+  router = inject(Router);
 
   selectedCv: any | undefined;
-  listCandidats: any [] = [];
-  listCvToAnalyse: any [] = [];
+  listCandidats: any[] = [];
+  listCvToAnalyse: any[] = [];
 
   constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
-    this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data})
+    this.candidatService.getCvList().subscribe((data) => {
+      this.listCvToAnalyse = data;
+    });
+    this.candidatService.getAllAnalysedCandidats().subscribe((data) => {
+      this.listCvToAnalyse = data;
+    });
   }
 
   onFileSelect(event: any) {
@@ -45,13 +61,15 @@ export class EspaceCvComponent implements OnInit {
 
   triggerFileSelect() {
     // Programmatically trigger the file input click
-    const fileInputElement = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const fileInputElement = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement;
     if (fileInputElement) {
       fileInputElement.click();
     }
   }
 
-  redirect(){
-    this.router.navigate(['/analyse-cv']);
+  redirect(profil: any) {
+    this.router.navigate(['/analyse-cv'], { queryParams: profil });
   }
 }

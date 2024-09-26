@@ -1,13 +1,11 @@
 <p-card class="candidate-card">
   <header class="candidate-header grid col">
-    <h1 class="candidate-name">BOATI Leïla</h1>
+    <h1 class="candidate-name">{{candidate.id}}</h1>
     <span class="candidate-score">90</span>
   </header>
   <div class="grid">
     <div class="functions align-content-center">
-      <p-tag class="function-tag" value="Big Data Engineer" />
-      <p-tag class="function-tag" value="Proxy Product Owner Data" />
-      <p-tag class="function-tag" value="Data Analyst" />
+      <!-- <p-tag *ngFor="let item of candidate" class="function-tag" value="{{item}}" /> -->
     </div>
   </div>
   <div class="candidate-details grid">

@@ -61,7 +61,7 @@
           <td> {{profil.id}} </td>
           <td> <p-tag class="skills-tag mr-2" [value]="profil.profil"/></td>
           <td> {{profil.date}} </td>
-          <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect()"></p-button> </td>
+          <td> <p-button label="Ouvrir" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect(profil)"></p-button> </td>
         </tr>
       </ng-template>
     </p-table>

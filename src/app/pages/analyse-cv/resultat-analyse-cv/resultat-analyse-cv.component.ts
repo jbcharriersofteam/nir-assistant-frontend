@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
@@ -16,6 +16,9 @@ import { DetailsCard } from '../../../core/models/model';
   styleUrl: './resultat-analyse-cv.component.css'
 })
 export class ResultatAnalyseCvComponent {
+
+  @Input() candidate: any;
+
   detailsData: DetailsCard[] = [{
     icon: 'pi-thumbs-up',
     title: 'Points forts :',

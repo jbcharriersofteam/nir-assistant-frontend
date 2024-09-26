@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
@@ -9,6 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ResultatAnalyseCvComponent } from './resultat-analyse-cv/resultat-analyse-cv.component';
 import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
+import { ActivatedRoute } from '@angular/router';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-analyse-cv',
@@ -22,12 +24,12 @@ import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
     InputTextModule,
     FloatLabelModule,
     ResultatAnalyseCvComponent,
-    AoCardComponent
+    AoCardComponent,
   ],
   templateUrl: './analyse-cv.component.html',
   styleUrl: './analyse-cv.component.css',
 })
-export class AnalyseCvComponent {
+export class AnalyseCvComponent implements OnInit {
   aoCards = [
     {
       title: 'Data Engineering Senior',
@@ -52,4 +54,13 @@ export class AnalyseCvComponent {
       duration: '3 ans',
     },
   ];
+  candidate: any;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.candidate = params;
+    });
+  }
 }
