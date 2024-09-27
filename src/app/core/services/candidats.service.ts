@@ -15,7 +15,7 @@ export class CandidatService {
     return this.http.get<any>(this.API + 'cv-list');
   }
   uploadCv( data: any){
-    return this.http.post<any>(this.API + 'upload-cv', data, {});
+    return this.http.post<any>(this.API + 'upload-cv', data);
   }
   getAllAnalysedCandidats(): Observable<any> {
     return this.http.get<any>(this.API + 'scan-cv-table');
