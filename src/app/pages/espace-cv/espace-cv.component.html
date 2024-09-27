@@ -6,11 +6,11 @@
     <div class="flex align-items-center justify-content-between flex-wrap">
       <div class="upload-container" style="width: 518px">
         <h4>Télécharger un CV</h4>
-        <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
+        <p-fileUpload #fileUpload name="myfileUploader" url="" [multiple]="false" accept="application/pdf"
           maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
           <ng-template pTemplate="content">
             <div class="flex align-items-center">
-              <i class="pi pi-cloud-upload upload-icon"></i>
+              <i class="pi pi-cloud-upload upload-icon mr-2 blue"></i>
               <span class="upload-text mr-2"> Déposez votre fichier ici</span>
               <p-button label="Parcourir les fichiers" styleClass="p-button-outlined upload-files"
                 (click)="triggerFileSelect()">
@@ -27,32 +27,40 @@
         <h4>Récupérer un CV DC-Gen</h4>
         <p>Veuillez choisir un nom dans la liste</p>
         <div class="flex justify-content-left dropdown-width">
-          <p-dropdown [options]="listCvToAnalyse" [(ngModel)]="selectedCv" optionLabel="Key" placeholder="Sélectionner" />
+          <p-dropdown [options]="listCvToAnalyse" [(ngModel)]="selectedCv" optionLabel="id" placeholder="Sélectionner" />
         </div>
       </div>
     </div>
     <p-divider />
     <div class="flex justify-content-end mt-2">
-      <p-button> Enregistrer le cv</p-button>
+      <p-button (click)="uplaodFile()"> Enregistrer le cv</p-button>
     </div>
   </p-card>
 
   <p-card styleClass="card-text-blue">
     <h2>Candidats analysés</h2>
     <p>Listes des candidats déjà analysés par NIR Assistant</p>
-    <div class="flex justify-content-end">
+    <!-- <div class="flex justify-content-end">
       <p-iconField iconPosition="left">
         <p-inputIcon styleClass="pi pi-search" />
         <input type="text" (input)="dt2.filterGlobal('name', 'contains')" pInputText placeholder="Search" />
       </p-iconField>
-    </div>
-    <p-table #dt2 class="custom-table" [value]="listCvToAnalyse" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
-      [paginator]="true" [globalFilterFields]="['name']">
+    </div> -->
+    <p-table #dt class="custom-table" [value]="listCvToAnalyse" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+      [paginator]="true" [globalFilterFields]="['id', 'profil', 'date', ]">
+      <ng-template pTemplate="caption">
+        <div class="flex justify-content-end">
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="globalSearch(dt,$event)" placeholder="Search keyword" />
+            </span>
+        </div>
+      </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Nom <p-sortIcon field="name"/></th>
-          <th>Profil <p-sortIcon field="name"/></th>
-          <th>Dernière analyse <p-sortIcon field="name"/></th>
+          <th>Nom <p-sortIcon field="id"/></th>
+          <th>Profil <p-sortIcon field="profil"/></th>
+          <th>Dernière analyse <p-sortIcon field="date"/></th>
           <th>Action</th>
         </tr>
       </ng-template>

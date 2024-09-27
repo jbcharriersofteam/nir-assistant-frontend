@@ -14,11 +14,12 @@ import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-espace-cv',
   standalone: true,
-  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule ],
+  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, ToastModule ],
   templateUrl: './espace-cv.component.html',
   styleUrl: './espace-cv.component.css'
 })
@@ -26,30 +27,47 @@ export class EspaceCvComponent implements OnInit {
 
   public analyseService = inject(HttpClient);
   router = inject(Router)
-
+  searchValue = '';
   selectedCv: any | undefined;
   listCandidats: any [] = [];
   listCvToAnalyse: any [] = [];
+
+  uploadedFile: any | null;
 
   constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
     this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data})
+    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data; })
   }
 
   onFileSelect(event: any) {
+    this.uploadedFile = null;
     const file = event.files[0];
-    console.log('File selected:', file);
+    this.uploadedFile = file;
   }
 
   triggerFileSelect() {
-    // Programmatically trigger the file input click
     const fileInputElement = document.querySelector('input[type="file"]') as HTMLInputElement;
     if (fileInputElement) {
       fileInputElement.click();
     }
   }
+
+  uplaodFile(){
+    this.candidatService.uploadCv(this.uploadedFile).subscribe({
+      next: (data) => {
+        alert("it's ok")
+      },
+      error: (error) => {  alert("not OK") }
+    }
+    )
+  }
+
+  globalSearch(dt: any, event: any) {
+    return dt.filterGlobal(event.target.value, 'contains');
+  }
+  
 
   redirect(){
     this.router.navigate(['/analyse-cv']);
