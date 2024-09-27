@@ -10,27 +10,27 @@ import { HttpClient } from '@angular/common/http';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
-import { NgIf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
+import { Profil } from '../../core/models/model';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-espace-cv',
   standalone: true,
-  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, ToastModule ],
+  imports: [CardModule, NgForOf, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, ToastModule ],
   templateUrl: './espace-cv.component.html',
-  styleUrl: './espace-cv.component.css'
+  styleUrl: './espace-cv.component.css',
 })
 export class EspaceCvComponent implements OnInit {
-
   public analyseService = inject(HttpClient);
   router = inject(Router)
   searchValue = '';
   selectedCv: any | undefined;
-  listCandidats: any [] = [];
-  listCvToAnalyse: any [] = [];
+  listCandidats: any[] = [];
+  listCvToAnalyse: Profil[] = [];
 
   uploadedFile: any | null;
 
@@ -67,9 +67,24 @@ export class EspaceCvComponent implements OnInit {
   globalSearch(dt: any, event: any) {
     return dt.filterGlobal(event.target.value, 'contains');
   }
-  
-
-  redirect(){
-    this.router.navigate(['/analyse-cv']);
+    
+  redirect(profil: Profil) {
+    profil.metier_fonc = profil.metier_fonc
+      ? profil.metier_fonc.split(',')
+      : [];
+    profil.experience = profil.experience
+      ? profil.experience.match(/[0-9]+/g)?.[0]
+      : undefined;
+    profil.attractivite = profil.attractivite
+      ? profil.attractivite.match(/[0-9]+/g)?.[0]
+      : '0';
+    profil.techno_majeures = profil.techno_majeures
+      ? profil.techno_majeures.split(',')
+      : [];
+    profil.techno_mineures = profil.techno_mineures
+      ? profil.techno_mineures.split(',')
+      : [];
+    console.log(profil);
+    this.router.navigate(['/analyse-cv'], { state: profil });
   }
 }
