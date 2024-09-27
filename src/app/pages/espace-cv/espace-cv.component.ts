@@ -14,6 +14,7 @@ import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
+import { Profil } from '../../core/models/model';
 
 @Component({
   selector: 'app-espace-cv',
@@ -41,7 +42,7 @@ export class EspaceCvComponent implements OnInit {
 
   selectedCv: any | undefined;
   listCandidats: any[] = [];
-  listCvToAnalyse: any[] = [];
+  listCvToAnalyse: Profil[] = [];
 
   constructor(private candidatService: CandidatService) {}
 
@@ -69,7 +70,8 @@ export class EspaceCvComponent implements OnInit {
     }
   }
 
-  redirect(profil: any) {
+  redirect(profil: Profil) {
+    profil.metier_fonc = profil.metier_fonc.split(',');
     this.router.navigate(['/analyse-cv'], { queryParams: profil });
   }
 }

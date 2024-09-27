@@ -3,14 +3,14 @@ import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { DetailsCardComponent } from '../../shared/details-card/details-card.component';
-import { DetailsCard } from '../../core/models/model';
+import { DetailsCard, Profil } from '../../core/models/model';
 import { CommonModule, NgFor } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ResultatAnalyseCvComponent } from './resultat-analyse-cv/resultat-analyse-cv.component';
 import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
 import { ActivatedRoute } from '@angular/router';
-import { timeout } from 'rxjs';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-analyse-cv',
@@ -59,7 +59,7 @@ export class AnalyseCvComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe((params: Profil) => {
       this.candidate = params;
     });
   }
