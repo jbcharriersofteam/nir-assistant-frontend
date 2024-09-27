@@ -1,36 +1,54 @@
 <p-card class="candidate-card">
   <header class="candidate-header grid col">
-    <h1 class="candidate-name">{{candidate.id}}</h1>
+    <h1 class="candidate-name">{{ candidate?.id }}</h1>
     <span class="candidate-score">90</span>
   </header>
   <div class="grid">
-    <div class="functions align-content-center">
-      <p-tag *ngFor="let item of candidate.metier_fonc" class="function-tag mr-2" value="{{item}}" />
+    <div
+      *ngIf="candidate?.metier_fonc.length"
+      class="functions align-content-center"
+    >
+      <p-tag
+        *ngFor="let item of candidate?.metier_fonc"
+        class="function-tag mr-2"
+        value="{{ item }}"
+      />
     </div>
   </div>
   <div class="candidate-details grid">
     <div class="col-7">
-      <section class="candidate-info col-12">
-        <p class="experience">Expérience : 6 ans</p>
-        <div class="cv-attractiveness">
+      <section class="mb-5 candidate-info col-12">
+        <p
+          *ngIf="candidate?.experience; else noExperienceTemplate"
+          class="experience"
+        >
+          Expérience : {{ candidate?.experience }} ans
+        </p>
+        <ng-template #noExperienceTemplate>
+          <p class="experience">Expérience : N/A</p>
+        </ng-template>
+        <div *ngIf="attractivite" class="cv-attractiveness">
           <span>Attractivité du CV :</span>
           <div class="star-rating">
-            <p-rating [cancel]="false" [readonly]="true" />
+            <p-rating
+              [(ngModel)]="attractivite"
+              [cancel]="false"
+              [readonly]="true"
+            ></p-rating>
           </div>
         </div>
       </section>
       <section class="skills-section col-12">
-        <div class="skill-item">
+        <div *ngIf="candidate?.profil" class="skill-item">
           <i class="pi pi-shopping-bag"></i>
           <div>
             <h2 class="skill-title">Compétences métier</h2>
             <p class="skill-description">
-              Transformation numérique, Cash management, Compliance, Risque de
-              marché
+              {{ candidate?.profil }}
             </p>
           </div>
         </div>
-        <div class="skill-item">
+        <!-- <div class="skill-item">
           <i class="pi pi-file-check"></i>
           <div>
             <h2 class="skill-title">Livrables</h2>
@@ -39,36 +57,34 @@
               RGPD, Diagramme d'architecture data, User Story
             </p>
           </div>
-        </div>
-        <div class="skill-item">
+        </div> -->
+        <div *ngIf="candidate?.techno_majeures" class="skill-item">
           <i class="pi pi-wrench"></i>
           <div>
             <h2 class="skill-title">Outils principaux</h2>
             <div class="tag-container">
-              <span
-                ><p-tag class="skills-tag red" value="AWS" /><p-tag
-                  class="skills-tag red"
-                  value="GCP" /><p-tag
-                  class="skills-tag red"
-                  value="Azure" /><p-tag class="skills-tag red" value="Python"
-              /></span>
+              <p-tag
+                *ngFor="let item of candidate?.techno_majeures"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
             </div>
           </div>
         </div>
-        <div class="skill-item">
+        <div *ngIf="candidate?.techno_mineures" class="skill-item">
           <i class="pi pi-wrench"></i>
           <div>
             <h2 class="skill-title">Outils secondaires</h2>
             <div class="tag-container">
-              <span
-                ><p-tag class="skills-tag red" value="Docker" /><p-tag
-                  class="skills-tag red"
-                  value="Kafka" /><p-tag class="skills-tag red" value="Dataiku"
-              /></span>
+              <p-tag
+                *ngFor="let item of candidate?.techno_mineures"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
             </div>
           </div>
         </div>
-        <div class="skill-item">
+        <!-- <div class="skill-item">
           <i class="pi pi-wrench"></i>
           <div>
             <h2 class="skill-title">Méthodologies</h2>
@@ -80,7 +96,7 @@
               /></span>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
     </div>
     <div class="details col-5">

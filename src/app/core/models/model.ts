@@ -15,6 +15,6 @@ export interface Profil {
   points_forts?: string;
   profil?: string;
   recommandations?: string;
-  techno_majeures?: string;
-  techno_mineures?: string;
+  techno_majeures?: any;
+  techno_mineures?: any;
 }

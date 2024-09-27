@@ -51,6 +51,7 @@ export class EspaceCvComponent implements OnInit {
       this.listCvToAnalyse = data;
     });
     this.candidatService.getAllAnalysedCandidats().subscribe((data) => {
+      console.log(data);
       this.listCvToAnalyse = data;
     });
   }
@@ -71,7 +72,22 @@ export class EspaceCvComponent implements OnInit {
   }
 
   redirect(profil: Profil) {
-    profil.metier_fonc = profil.metier_fonc.split(',');
-    this.router.navigate(['/analyse-cv'], { queryParams: profil });
+    profil.metier_fonc = profil.metier_fonc
+      ? profil.metier_fonc.split(',')
+      : [];
+    profil.experience = profil.experience
+      ? profil.experience.match(/[0-9]+/g)?.[0]
+      : undefined;
+    profil.attractivite = profil.attractivite
+      ? profil.attractivite.match(/[0-9]+/g)?.[0]
+      : '0';
+    profil.techno_majeures = profil.techno_majeures
+      ? profil.techno_majeures.split(',')
+      : [];
+    profil.techno_mineures = profil.techno_mineures
+      ? profil.techno_mineures.split(',')
+      : [];
+    console.log(profil);
+    this.router.navigate(['/analyse-cv'], { state: profil });
   }
 }

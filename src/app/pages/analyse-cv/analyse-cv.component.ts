@@ -9,7 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ResultatAnalyseCvComponent } from './resultat-analyse-cv/resultat-analyse-cv.component';
 import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
 
 @Component({
@@ -56,11 +56,13 @@ export class AnalyseCvComponent implements OnInit {
   ];
   candidate: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.candidate = this.router.getCurrentNavigation()?.extras?.state;
+  }
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe((params: Profil) => {
-      this.candidate = params;
-    });
+  ngOnInit(): void {}
+
+  navigateBack() {
+    this.router.navigate(['espace-cv']);
   }
 }
