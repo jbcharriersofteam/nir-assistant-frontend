@@ -20,13 +20,28 @@ import { ToastModule } from 'primeng/toast';
 @Component({
   selector: 'app-espace-cv',
   standalone: true,
-  imports: [CardModule, NgForOf, FileUploadModule, DividerModule, DropdownModule, FormsModule, TableModule, TagModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, ToastModule ],
+  imports: [
+    CardModule,
+    NgForOf,
+    FileUploadModule,
+    DividerModule,
+    DropdownModule,
+    FormsModule,
+    TableModule,
+    TagModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule,
+    NgIf,
+    TabViewModule,
+    ToastModule,
+  ],
   templateUrl: './espace-cv.component.html',
   styleUrl: './espace-cv.component.css',
 })
 export class EspaceCvComponent implements OnInit {
   public analyseService = inject(HttpClient);
-  router = inject(Router)
+  router = inject(Router);
   searchValue = '';
   selectedCv: any | undefined;
   listCandidats: any[] = [];
@@ -37,8 +52,12 @@ export class EspaceCvComponent implements OnInit {
   constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
-    this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data; })
+    this.candidatService.getCvList().subscribe((data) => {
+      this.listCvToAnalyse = data;
+    });
+    this.candidatService.getAllAnalysedCandidats().subscribe((data) => {
+      this.listCvToAnalyse = data;
+    });
   }
 
   onFileSelect(event: any) {
@@ -48,26 +67,29 @@ export class EspaceCvComponent implements OnInit {
   }
 
   triggerFileSelect() {
-    const fileInputElement = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const fileInputElement = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement;
     if (fileInputElement) {
       fileInputElement.click();
     }
   }
 
-  uplaodFile(){
+  uplaodFile() {
     this.candidatService.uploadCv(this.uploadedFile).subscribe({
       next: (data) => {
-        alert("it's ok")
+        alert("it's ok");
       },
-      error: (error) => {  alert("not OK") }
-    }
-    )
+      error: (error) => {
+        alert('not OK');
+      },
+    });
   }
 
   globalSearch(dt: any, event: any) {
     return dt.filterGlobal(event.target.value, 'contains');
   }
-    
+
   redirect(profil: Profil) {
     profil.metier_fonc = profil.metier_fonc
       ? profil.metier_fonc.split(',')
