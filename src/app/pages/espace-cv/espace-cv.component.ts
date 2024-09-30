@@ -38,7 +38,7 @@ export class EspaceCvComponent implements OnInit {
 
   ngOnInit() {
     this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCvToAnalyse = data; })
+    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCandidats = data; })
   }
 
   onFileSelect(event: any) {
@@ -62,6 +62,10 @@ export class EspaceCvComponent implements OnInit {
       error: (error) => {  alert("not OK") }
     }
     )
+  }
+
+  test(){
+    this.candidatService.analyseCV(this.selectedCv.Key).subscribe(data => console.log(data))
   }
 
   globalSearch(dt: any, event: any) {
