@@ -4,11 +4,11 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AoService } from '../../../core/services/ao.service';
 import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { CandidatService } from '../../../core/services/candidats.service';
 import { ChipModule } from 'primeng/chip';
 import { CommonModule } from '@angular/common';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+import { AnalyseCandidatService } from '../../../core/services/analyse-cv.service';
 
 @Component({
   selector: 'app-selector',
@@ -34,15 +34,15 @@ export class SelectorComponent implements OnInit {
 
   constructor(
     private aoService: AoService,
-    private candidatesService: CandidatService
+    private candidatesService: AnalyseCandidatService
   ) {}
 
   ngOnInit() {
-    this.aoService.getAoList().subscribe((data) => {
+    this.aoService.getListFromApi().subscribe((data) => {
       this.aoList = data;
     });
 
-    this.candidatesService.getCvList().subscribe((data) => {
+    this.candidatesService.getFilesList().subscribe((data) => {
       this.candidatesList = data;
     });
   }

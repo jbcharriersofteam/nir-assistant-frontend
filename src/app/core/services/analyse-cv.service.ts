@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Profil } from '../../core/models/model';
-import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
+import { Profil } from '../models/model';
+import { AbstractUploadAnalyseFileService } from './upload-analyse-file';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnalyseCandidat1Service extends AbstractUploadAnalyseFileService {
+export class AnalyseCandidatService extends AbstractUploadAnalyseFileService {
 
     private API: string = 'https://v7sk3jpn45.execute-api.eu-west-3.amazonaws.com/v1/';
   
@@ -16,7 +16,7 @@ export class AnalyseCandidat1Service extends AbstractUploadAnalyseFileService {
         super();
     }
      
-    protected override getListFromApi(): Observable<Profil[]> {
+    public override getListFromApi(): Observable<Profil[]> {
         return this.http.get<any[]>(this.API + 'cv-list');
     }
     protected override uploadFileToApi(data: File): Observable<any> {
@@ -50,6 +50,10 @@ export class AnalyseCandidat1Service extends AbstractUploadAnalyseFileService {
     }
     protected override analyseFileToApi(fileName: string): Observable<any> {
         return this.http.get<any>(this.API + 'cv-analyzer?fileName=' + fileName);
+    }
+
+    getAllAnalysedCandidats(): Observable<any> {
+      return this.http.get<any>(this.API + 'scan-cv-table');
     }
 
 }

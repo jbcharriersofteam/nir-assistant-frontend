@@ -7,11 +7,10 @@ import { HttpClient } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgForOf, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
-import { CandidatService } from '../../core/services/candidats.service';
 import { Profil, WordingUpload } from '../../core/models/model';
 import { Button } from 'primeng/button';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
-import { AnalyseCandidat1Service } from './analyse-cv.service';
+import { AnalyseCandidatService } from '../../core/services/analyse-cv.service';
 import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analyse.component';
 
 @Component({
@@ -31,7 +30,7 @@ import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analy
   templateUrl: './espace-cv.component.html',
   styleUrl: './espace-cv.component.css',
   providers: [
-    { provide: AbstractUploadAnalyseFileService, useClass: AnalyseCandidat1Service }
+    { provide: AbstractUploadAnalyseFileService, useClass: AnalyseCandidatService }
   ]
 })
 export class EspaceCvComponent implements OnInit {
@@ -46,10 +45,10 @@ export class EspaceCvComponent implements OnInit {
     section2_title: "Sélectionner un CV"
   }
 
-  constructor(private candidatService: CandidatService) {}
+  constructor(private analyseCandidatService: AnalyseCandidatService) {}
 
   ngOnInit() {
-    this.candidatService.getAllAnalysedCandidats().subscribe(data => { this.listCandidats = data; })
+    this.analyseCandidatService.getAllAnalysedCandidats().subscribe(data => { this.listCandidats = data; })
   }
 
   globalSearch(dt: any, event: any) {
