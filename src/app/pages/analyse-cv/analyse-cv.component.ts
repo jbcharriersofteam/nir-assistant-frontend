@@ -3,14 +3,12 @@ import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { DetailsCardComponent } from '../../shared/details-card/details-card.component';
-import { DetailsCard, Profil } from '../../core/models/model';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ResultatAnalyseCvComponent } from './resultat-analyse-cv/resultat-analyse-cv.component';
 import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-analyse-cv',
@@ -56,7 +54,7 @@ export class AnalyseCvComponent implements OnInit {
   ];
   candidate: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router) {
     this.candidate = this.router.getCurrentNavigation()?.extras?.state;
   }
 
