@@ -3,14 +3,17 @@
   <span> {{wordings.subTitle}}</span>
   <p-tabView class="mt-2">
     <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
-      <div class="file-upload-form">
+      <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
+      maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
+      <ng-template pTemplate="content">
         <p><i class="pi pi-cloud-upload upload-icon"></i></p>
         <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
         <p class="upload-alternative">ou</p>
         <p-button label="Parcourir les fichiers" styleClass="p-button-outlined"
           (click)="triggerFileSelect()"></p-button>
         <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
-      </div>
+      </ng-template>
+    </p-fileUpload>
       <p-divider />
       <div class="flex justify-content-end mt-2">
         <p-button (click)="uplaodFile()" class="mr-2">Upload file</p-button>
