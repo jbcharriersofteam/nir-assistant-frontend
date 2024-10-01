@@ -10,6 +10,10 @@ body {
   background-color: #f9f7f7;
 }
 
+.p-card {
+  box-shadow: none;
+}
+
 .upload-text {
   font-weight: 400;
   font-size: 14px;
@@ -60,5 +64,12 @@ body {
   .p-tag {
     background-color: #f9f1fd;
     color: #a13ad4;
+  }
+}
+
+.skills-tag.green {
+  .p-tag {
+    background-color: #f4faf6;
+    color: #49801a;
   }
 }
