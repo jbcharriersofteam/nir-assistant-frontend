@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Profil } from '../../core/models/model';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -52,7 +51,7 @@ export class AoService extends AbstractUploadAnalyseFileService {
         return this.http.get<any>(this.API + 'ao-analyzer?fileName=' + fileName);
     }
     getAllAnalysedAos(): Observable<any> {
-      return this.http.get<any>(this.API + 'scan-cv-table');
+      return this.http.get<any>(this.API + 'scan-ao-table');
     }
 
 }
