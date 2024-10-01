@@ -18,3 +18,11 @@ export interface Profil {
   techno_majeures?: any;
   techno_mineures?: any;
 }
+
+
+export interface wordingUpload{
+  title: string;
+  subTitle: string;
+  section1_title: string;
+  section2_title: string;
+}

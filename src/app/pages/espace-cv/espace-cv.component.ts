@@ -8,9 +8,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { NgForOf, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
-import { Profil } from '../../core/models/model';
-import { AnalyseCandidatComponent } from './analyse-candidat/analyse-candidat.component';
+import { Profil, wordingUpload } from '../../core/models/model';
 import { Button } from 'primeng/button';
+import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
+import { AnalyseCandidat1Service } from './analyse-cv.service';
+import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analyse.component';
 
 @Component({
   selector: 'app-espace-cv',
@@ -24,16 +26,25 @@ import { Button } from 'primeng/button';
     InputTextModule,
     Button,
     NgIf,
-    AnalyseCandidatComponent
+    UploadAnalyseComponent,
   ],
   templateUrl: './espace-cv.component.html',
   styleUrl: './espace-cv.component.css',
+  providers: [
+    { provide: AbstractUploadAnalyseFileService, useClass: AnalyseCandidat1Service }
+  ]
 })
 export class EspaceCvComponent implements OnInit {
   public analyseService = inject(HttpClient);
   router = inject(Router);
   searchValue = '';
   listCandidats: any[] = [];
+  wordings: wordingUpload = {
+    title: "Analyser les données du candidat",
+    subTitle: "Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser",
+    section1_title: "Télécharger un CV",
+    section2_title: "Sélectionner un CV"
+  }
 
   constructor(private candidatService: CandidatService) {}
 

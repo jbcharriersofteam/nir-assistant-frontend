@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DividerModule } from 'primeng/divider';
@@ -9,34 +9,32 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
-import { CandidatService } from '../../../core/services/candidats.service';
-import { Profil } from '../../../core/models/model';
-
+import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
+import { wordingUpload } from '../../core/models/model';
 
 @Component({
-  selector: 'app-analyse-candidat',
+  selector: 'app-upload-analyse',
   standalone: true,
   imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, DividerModule ],
-  templateUrl: './analyse-candidat.component.html',
-  styleUrl: './analyse-candidat.component.css'
+  templateUrl: './upload-analyse.component.html',
+  styleUrl: './upload-analyse.component.css'
 })
-export class AnalyseCandidatComponent implements OnInit {
+export class UploadAnalyseComponent implements OnInit {
 
-  cities = [];
-  selectedCity: any = undefined;
   uploadedFile: any | null;
-  listCvToAnalyse: Profil[] = [];
-  selectedCv: any | undefined;
+  listToAnalyse: any[] = [];
+  selectedFile: any | undefined;
+  @Input() wordings : wordingUpload | undefined = undefined;
 
-  constructor(private candidatService: CandidatService) {}
+  constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService) {}
 
   ngOnInit() {
-    this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
+    this.uploadAnalyseFile.getFilesList().subscribe(data => { this.listToAnalyse = data})
   }
   analyseFile() {  }
 
   uplaodFile() {
-    this.candidatService.uploadCv(this.uploadedFile).subscribe({
+    this.uploadAnalyseFile.uploadFile(this.uploadedFile).subscribe({
       next: (data) => {
         alert("it's ok");
       },
@@ -45,10 +43,14 @@ export class AnalyseCandidatComponent implements OnInit {
       },
     });
   }
+
+  analyseCv(){
+    this.uploadAnalyseFile.analyseFile("").subscribe();
+  }
+
   onFileSelect(event: any) {
     this.uploadedFile = null;
-    const file = event.files[0];
-    this.uploadedFile = file;
+    this.uploadedFile = event.files[0];
   }
 
   triggerFileSelect() {

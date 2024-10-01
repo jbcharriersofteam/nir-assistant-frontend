@@ -1,11 +1,6 @@
 import { Routes } from '@angular/router';
-import { AnalyseCandidatComponent } from './pages/espace-cv/analyse-candidat/analyse-candidat.component';
 
 export const routes: Routes = [
-  {
-    path: 'test',
-    component: AnalyseCandidatComponent
-  },
   {
     path: 'espace-cv',
     loadComponent: () => import('./pages/espace-cv/espace-cv.component').then(m=> m.EspaceCvComponent)
