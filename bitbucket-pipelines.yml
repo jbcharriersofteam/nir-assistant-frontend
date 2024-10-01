@@ -1,0 +1,24 @@
+#  Template NodeJS build
+
+#  This template allows you to validate your NodeJS code.
+#  The workflow allows running tests and code linting on the default branch.
+
+image: node:18
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Install Dependencies
+            caches:
+              - node
+            script:
+              - echo "Installation des d‚pendences..."
+              - npm install
+        - step:
+            name: Build Project
+            script:
+              - echo "Building the Angular project..."
+              - npx ng build
+            caches:
+              - node
