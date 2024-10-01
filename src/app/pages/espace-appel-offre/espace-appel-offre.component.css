@@ -5,3 +5,8 @@
 .blue {
     color: #0000FF;;
 }
+
+
+::ng-deep .p-tag {
+    margin: 3px;
+}

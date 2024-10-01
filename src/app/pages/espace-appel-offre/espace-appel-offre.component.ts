@@ -12,6 +12,8 @@ import { Button } from 'primeng/button';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
 import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analyse.component';
 import { AoService } from '../../core/services/ao.service';
+import { AbbreviatePipe } from '../../shared/pipes/abbreviate.pipe';
+import { SplitStringPipe } from '../../shared/pipes/split.pipe';
 
 @Component({
   selector: 'app-espace-appel-offre',
@@ -26,6 +28,8 @@ import { AoService } from '../../core/services/ao.service';
     Button,
     NgIf,
     UploadAnalyseComponent,
+    AbbreviatePipe,
+    SplitStringPipe
   ],
   templateUrl: './espace-appel-offre.component.html',
   styleUrl: './espace-appel-offre.component.css',
