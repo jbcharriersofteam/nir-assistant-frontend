@@ -1,8 +1,8 @@
 <p-card styleClass="card-text-blue">
   <h2>Analyser un candidat</h2>
   <span>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</span>
-  <p-tabView>
-    <p-tabPanel header="Télécharger un CV" styleClass="tab-button">
+  <p-tabView class="mt-2">
+    <p-tabPanel header="Télécharger un CV" styleClass="mt-3">
       <div class="file-upload-form">
         <p><i class="pi pi-cloud-upload upload-icon"></i></p>
         <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
@@ -11,13 +11,21 @@
           (click)="triggerFileSelect()"></p-button>
         <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
       </div>
+      <p-divider />
+      <div class="flex justify-content-end mt-2">
+        <p-button (click)="uplaodFile()" class="mr-2">Upload file</p-button>
+        <p-button (click)="analyseFile()" disabled>Lancer l'analyse du cv</p-button>
+      </div>
     </p-tabPanel>
     <p-tabPanel header="Sélectionner un CV">
-      <div>
-        <p class="subtitle"> Téléchargez ou sélectionnez dans la liste le CV du candidat que vous souhaitez analyser
-        </p>
-        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Sélectionner" />
+      <div class="flex justify-content-left dropdown-width">
+        <p-dropdown [options]="listCvToAnalyse" [(ngModel)]="selectedCv" optionLabel="Key" placeholder="Sélectionner" />
+      </div>
+      <p-divider />
+      <div class="flex justify-content-end mt-2">
+        <p-button (click)="analyseFile()">Lancer l'analyse du cv</p-button>
       </div>
     </p-tabPanel>
   </p-tabView>
 </p-card>
+

@@ -9,12 +9,14 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
+import { CandidatService } from '../core/services/candidats.service';
+import { Profil } from '../core/models/model';
 
 
 @Component({
   selector: 'app-analyse-candidat',
   standalone: true,
-  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule ],
+  imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, IconFieldModule,InputIconModule, InputTextModule, NgIf, TabViewModule, DividerModule ],
   templateUrl: './analyse-candidat.component.html',
   styleUrl: './analyse-candidat.component.css'
 })
@@ -22,28 +24,31 @@ export class AnalyseCandidatComponent implements OnInit {
 
   cities = [];
   selectedCity: any = undefined;
-  constructor() {}
+  uploadedFile: any | null;
+  listCvToAnalyse: Profil[] = [];
+  selectedCv: any | undefined;
+
+  constructor(private candidatService: CandidatService) {}
 
   ngOnInit() {
-    
+    this.candidatService.getCvList().subscribe(data => { this.listCvToAnalyse = data})
   }
+  analyseFile() {  }
 
-  uploadCV(): void {
-    // Implement CV upload logic
+  uplaodFile() {
+    this.candidatService.uploadCv(this.uploadedFile).subscribe({
+      next: (data) => {
+        alert("it's ok");
+      },
+      error: (error) => {
+        alert('not OK');
+      },
+    });
   }
-
-  selectCV(): void {
-    // Implement CV selection logic
-  }
-
-  startAnalysis(): void {
-    // Implement analysis start logic
-  }
-
   onFileSelect(event: any) {
+    this.uploadedFile = null;
     const file = event.files[0];
-    console.log('File selected:', file);
-
+    this.uploadedFile = file;
   }
 
   triggerFileSelect() {
@@ -52,6 +57,4 @@ export class AnalyseCandidatComponent implements OnInit {
       fileInputElement.click();
     }
   }
-
- 
 }

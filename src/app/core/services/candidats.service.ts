@@ -16,39 +16,43 @@ export class CandidatService {
     return this.http.get<any>(this.API + 'cv-list');
   }
 
-  uploadCv(data: any) {
-    const reader = new FileReader();
-    reader.readAsDataURL(data);
-    reader.onload = () => {
-      const base64File = reader.result?.toString().split(',')[1];
-      this.body = {
-        file: base64File,
-        fileName: data.name,
+  uploadCv(data: File): Observable<any> {
+    return new Observable((observer) => {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(data);
+
+      reader.onload = () => {
+        const base64File = reader.result?.toString().split(',')[1];
+        const body = {
+          file: base64File,
+          fileName: data.name,
+        };
+
+        this.http.post<any>(this.API + 'upload-cv', body).subscribe(
+          (response) => {
+            observer.next(response);
+            observer.complete();
+          },
+          (error) => {
+            observer.error(error);
+          }
+        );
       };
-      return this.http.post<any>(this.API + 'upload-cv', this.body);
-    };
-    return this.http.post<any>(this.API + 'upload-cv', this.body);
+
+      reader.onerror = (error) => {
+        observer.error(error);
+      };
+    });
   }
 
   getAllAnalysedCandidats(): Observable<any> {
     return this.http.get<any>(this.API + 'scan-cv-table');
   }
 
-  // convertToBAse64(data: File) {
-  //   let res;
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(data);
-  //   reader.onload = () => {
-  //     const base64File = reader.result?.toString().split(',')[1];
-  //     res = {
-  //       file: base64File,
-  //       fileName: data.name,
-  //     };
-  //   };
-  //   return res;
-  // }
-
   analyseCV(cvName: string) {
     return this.http.get<any>(this.API + 'cv-analyzer?fileName=' + cvName);
   }
+
 }
+

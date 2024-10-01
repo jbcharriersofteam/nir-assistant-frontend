@@ -4157,6 +4157,7 @@
   }
 
   .p-tabview .p-tabview-nav-container{
+    margin-top: 1rem;
     display: flex;
 
   }

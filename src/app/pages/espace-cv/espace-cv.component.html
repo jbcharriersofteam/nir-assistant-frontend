@@ -1,41 +1,6 @@
 <div class="base-candidat">
-  <h1>Base des candidats</h1>
-  <p-card styleClass="card-text-blue">
-    <h2>Analyser un candidat</h2>
-    <p>Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser</p>
-    <div class="flex align-items-center justify-content-between flex-wrap">
-      <div class="upload-container" style="width: 518px">
-        <h4>Télécharger un CV</h4>
-        <p-fileUpload #fileUpload name="myfileUploader" url="" [multiple]="false" accept="application/pdf"
-          maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
-          <ng-template pTemplate="content">
-            <div class="flex align-items-center">
-              <i class="pi pi-cloud-upload upload-icon mr-2 blue"></i>
-              <span class="upload-text mr-2"> Déposez votre fichier ici</span>
-              <p-button label="Parcourir les fichiers" styleClass="p-button-outlined upload-files"
-                (click)="triggerFileSelect()">
-              </p-button>
-            </div>
-          </ng-template>
-        </p-fileUpload>
-        <small class="file-limit">Fichier limité à 2MB ou format PDF uniquement</small>
-      </div>
-      <div>
-        <h4>OU</h4>
-      </div>
-      <div style="width: 363px;">
-        <h4>Récupérer un CV DC-Gen</h4>
-        <p>Veuillez choisir un nom dans la liste</p>
-        <div class="flex justify-content-left dropdown-width">
-          <p-dropdown [options]="listCvToAnalyse" [(ngModel)]="selectedCv" optionLabel="Key" placeholder="Sélectionner" />
-        </div>
-      </div>
-    </div>
-    <p-divider />
-    <div class="flex justify-content-end mt-2">
-      <p-button (click)="uplaodFile()">Enregistrer le cv</p-button>
-    </div>
-  </p-card>
+  
+  <app-analyse-candidat></app-analyse-candidat>
 
   <p-card styleClass="card-text-blue">
     <h2>Candidats analysés</h2>
