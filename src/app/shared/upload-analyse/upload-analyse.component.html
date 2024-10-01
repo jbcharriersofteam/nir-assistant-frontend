@@ -1,8 +1,8 @@
 <p-card styleClass="card-text-blue">
-  <h2>{{wordings?.title}}</h2>
-  <span> {{wordings?.subTitle}}</span>
+  <h2>{{wordings.title}}</h2>
+  <span> {{wordings.subTitle}}</span>
   <p-tabView class="mt-2">
-    <p-tabPanel [header]="wordings?.section1_title" styleClass="mt-3">
+    <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
       <div class="file-upload-form">
         <p><i class="pi pi-cloud-upload upload-icon"></i></p>
         <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
@@ -17,7 +17,7 @@
         <p-button (click)="analyseFile()" disabled>Lancer l'analyse</p-button>
       </div>
     </p-tabPanel>
-    <p-tabPanel [header]="wordings?.section2_title">
+    <p-tabPanel [header]="wordings.section2_title">
       <div class="flex justify-content-left dropdown-width">
         <p-dropdown [options]="listToAnalyse" [(ngModel)]="selectedFile" optionLabel="Key" placeholder="Sélectionner" />
       </div>

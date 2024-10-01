@@ -8,7 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { NgForOf, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
-import { Profil, wordingUpload } from '../../core/models/model';
+import { Profil, WordingUpload } from '../../core/models/model';
 import { Button } from 'primeng/button';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
 import { AnalyseCandidat1Service } from './analyse-cv.service';
@@ -39,7 +39,7 @@ export class EspaceCvComponent implements OnInit {
   router = inject(Router);
   searchValue = '';
   listCandidats: any[] = [];
-  wordings: wordingUpload = {
+  wordings: WordingUpload = {
     title: "Analyser les données du candidat",
     subTitle: "Téléchargez ou sélectionnez le CV du candidat que vous souhaitez analyser",
     section1_title: "Télécharger un CV",

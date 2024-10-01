@@ -10,7 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
-import { wordingUpload } from '../../core/models/model';
+import { WordingUpload } from '../../core/models/model';
 
 @Component({
   selector: 'app-upload-analyse',
@@ -24,7 +24,12 @@ export class UploadAnalyseComponent implements OnInit {
   uploadedFile: any | null;
   listToAnalyse: any[] = [];
   selectedFile: any | undefined;
-  @Input() wordings : wordingUpload | undefined = undefined;
+  @Input() wordings : WordingUpload = {
+    title: "",
+    subTitle: "",
+    section1_title: "",
+    section2_title: ""
+  }
 
   constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService) {}
 

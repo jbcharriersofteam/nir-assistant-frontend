@@ -20,7 +20,7 @@ export interface Profil {
 }
 
 
-export interface wordingUpload{
+export interface WordingUpload{
   title: string;
   subTitle: string;
   section1_title: string;
