@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AnalyseCandidatComponent } from './analyse-candidat/analyse-candidat.component';
+import { AnalyseCandidatComponent } from './pages/espace-cv/analyse-candidat/analyse-candidat.component';
 
 export const routes: Routes = [
   {

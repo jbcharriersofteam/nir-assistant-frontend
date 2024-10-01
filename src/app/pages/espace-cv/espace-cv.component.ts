@@ -9,7 +9,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { CandidatService } from '../../core/services/candidats.service';
 import { Profil } from '../../core/models/model';
-import { AnalyseCandidatComponent } from '../../analyse-candidat/analyse-candidat.component';
+import { AnalyseCandidatComponent } from './analyse-candidat/analyse-candidat.component';
 import { Button } from 'primeng/button';
 
 @Component({

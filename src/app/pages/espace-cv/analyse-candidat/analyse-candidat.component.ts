@@ -9,8 +9,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
-import { CandidatService } from '../core/services/candidats.service';
-import { Profil } from '../core/models/model';
+import { CandidatService } from '../../../core/services/candidats.service';
+import { Profil } from '../../../core/models/model';
 
 
 @Component({
