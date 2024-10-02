@@ -8,10 +8,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { DetailsCardComponent } from '../../../shared/details-card/details-card.component';
 import { DetailsCard } from '../../../core/models/model';
 import { FormsModule } from '@angular/forms';
-import { SplitStringPipe } from '../../../shared/pipes/split.pipe';
 
 @Component({
-  selector: 'app-resultat-analyse-cv',
+  selector: 'app-resultat-ao',
   standalone: true,
   imports: [
     CardModule,
@@ -24,12 +23,11 @@ import { SplitStringPipe } from '../../../shared/pipes/split.pipe';
     NgFor,
     NgForOf,
     FormsModule,
-    SplitStringPipe
   ],
   templateUrl: './resultat-analyse-cv.component.html',
-  styleUrl: './resultat-analyse-cv.component.css',
+  styleUrl: './resultat-appel-offre.component.css',
 })
-export class ResultatAnalyseCvComponent implements OnInit {
+export class ResultatAnalyseAOComponent implements OnInit {
   @Input() candidate: any;
 
   attractivite: string = '';

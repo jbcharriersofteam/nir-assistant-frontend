@@ -14,6 +14,7 @@ import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analy
 import { AoService } from '../../core/services/ao.service';
 import { AbbreviatePipe } from '../../shared/pipes/abbreviate.pipe';
 import { SplitStringPipe } from '../../shared/pipes/split.pipe';
+import { ResultatAnalyseAOComponent } from './resultat-appel-offre/resultat-appel-offre.component';
 
 @Component({
   selector: 'app-espace-appel-offre',
@@ -29,7 +30,8 @@ import { SplitStringPipe } from '../../shared/pipes/split.pipe';
     NgIf,
     UploadAnalyseComponent,
     AbbreviatePipe,
-    SplitStringPipe
+    SplitStringPipe,
+    ResultatAnalyseAOComponent
   ],
   templateUrl: './espace-appel-offre.component.html',
   styleUrl: './espace-appel-offre.component.css',

@@ -57,7 +57,7 @@ export class EspaceCvComponent implements OnInit {
 
   redirect(profil: Profil) {
     profil.metier_fonc = profil.metier_fonc
-      ? profil.metier_fonc.split(',')
+      ? profil.metier_fonc
       : [];
     profil.experience = profil.experience
       ? profil.experience.match(/[0-9]+/g)?.[0]
@@ -66,10 +66,10 @@ export class EspaceCvComponent implements OnInit {
       ? profil.attractivite.match(/[0-9]+/g)?.[0]
       : '0';
     profil.techno_majeures = profil.techno_majeures
-      ? profil.techno_majeures.split(',')
+      ? profil.techno_majeures
       : [];
     profil.techno_mineures = profil.techno_mineures
-      ? profil.techno_mineures.split(',')
+      ? profil.techno_mineures
       : [];
     console.log(profil);
     this.router.navigate(['/analyse-cv'], { state: profil });
