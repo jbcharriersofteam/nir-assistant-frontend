@@ -48,7 +48,7 @@ export class AoService extends AbstractUploadAnalyseFileService {
           });
     }
     public override analyseFileToApi(fileName: string): Observable<any> {
-        return this.http.get<any>(this.API + 'ao-analyzer?fileName=' + fileName);
+        return this.http.get<any>(this.API + 'ao-analyzer?file_name=' + fileName);
     }
     getAllAnalysedAos(): Observable<any> {
       return this.http.get<any>(this.API + 'scan-ao-table');

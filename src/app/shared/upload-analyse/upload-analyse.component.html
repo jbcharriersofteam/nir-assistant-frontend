@@ -1,7 +1,7 @@
 <p-card styleClass="card-text-blue">
   <h2>{{wordings.title}}</h2>
   <span> {{wordings.subTitle}}</span>
-  <p-tabView class="mt-2">
+  <p-tabView class="mt-2" (onChange)="tabIndex = $event.index">
     <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
       <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
       maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
@@ -38,3 +38,5 @@
 </p-card>
 
 <app-loading-dialog></app-loading-dialog>
+
+<p-toast></p-toast>
