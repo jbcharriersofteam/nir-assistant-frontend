@@ -14,7 +14,6 @@ export class MatchingResultPageComponent {
   matching: Matching | undefined;
   constructor(private router: Router) {
     this.matching = this.router.getCurrentNavigation()?.extras?.state;
-    console.log(this.matching);
   }
 
   ngOnInit(): void {}

@@ -24,7 +24,6 @@ export class MatchingListComponent implements OnInit {
   ngOnInit() {
     this.matchingService.getMatchingList().subscribe((data: Matching[]) => {
       this.listPreviousMatching = data;
-      console.log(this.listPreviousMatching);
     });
   }
 
@@ -33,10 +32,18 @@ export class MatchingListComponent implements OnInit {
   }
 
   redirect(matching: Matching) {
-    // profil.metier_fonc = profil.metier_fonc
-    //   ? profil.metier_fonc.split(',')
-    //   : [];
-    console.log(matching);
+    matching.domaine_ao = matching.domaine_ao
+      ? matching.domaine_ao.split(',')
+      : [];
+      matching.profil_attendu = matching.profil_attendu
+      ? matching.profil_attendu.split(',')
+      : [];
+      matching.techno_ao = matching.techno_ao
+      ? matching.techno_ao.split(',')
+      : [];
+      matching.profil_candidat = matching.profil_candidat
+      ? matching.profil_candidat.split(',')
+      : [];
     this.router.navigate(['/matching-cvao-result'], { state: matching });
   }
 }
