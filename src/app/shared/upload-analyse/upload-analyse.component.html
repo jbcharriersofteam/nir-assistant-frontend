@@ -4,16 +4,16 @@
   <p-tabView class="mt-2" (onChange)="tabIndex = $event.index">
     <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
       <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [multiple]="false" accept="application/pdf"
-      maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
-      <ng-template pTemplate="content">
-        <p><i class="pi pi-cloud-upload upload-icon"></i></p>
-        <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
-        <p class="upload-alternative">ou</p>
-        <p-button label="Parcourir les fichiers" styleClass="p-button-outlined"
-          (click)="triggerFileSelect()"></p-button>
-        <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
-      </ng-template>
-    </p-fileUpload>
+        maxFileSize="2000000" (onSelect)="onFileSelect($event)" mode="advanced">
+        <ng-template pTemplate="content">
+          <p><i class="pi pi-cloud-upload upload-icon"></i></p>
+          <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
+          <p class="upload-alternative">ou</p>
+          <p-button label="Parcourir les fichiers" styleClass="p-button-outlined"
+            (click)="triggerFileSelect()"></p-button>
+          <p class="file-limit-info">Fichier limité à 200MB au format PDF uniquement</p>
+        </ng-template>
+      </p-fileUpload>
       <p-divider />
       <div class="flex justify-content-end mt-2">
         <p-button (click)="uplaodFile()" class="mr-2">Upload file</p-button>
@@ -22,7 +22,8 @@
     </p-tabPanel>
     <p-tabPanel [header]="wordings.section2_title">
       <div class="flex justify-content-left dropdown-width">
-        <p-dropdown [options]="listToAnalyse" [(ngModel)]="selectedFileFromList" optionLabel="Key" placeholder="Sélectionner" />
+        <p-dropdown [options]="listToAnalyse" [(ngModel)]="selectedFileFromList" optionLabel="Key"
+          placeholder="Sélectionner" />
       </div>
       <p-divider />
       <div class="flex justify-content-end mt-2">
@@ -34,7 +35,12 @@
 
 <p-card *ngIf="showAnalyse">
   <h2>Résultat de l’analyse</h2>
-  <app-resultat-analyse-cv  [candidate]="candidate"></app-resultat-analyse-cv>
+  <app-resultat-analyse-cv [candidate]="candidate"></app-resultat-analyse-cv>
+
+  <p-divider />
+  <div class="flex justify-content-end">
+    <p-button (click)="redirectProfile(candidate)">Voir la fiche complète</p-button>
+  </div>
 </p-card>
 
 <app-loading-dialog></app-loading-dialog>

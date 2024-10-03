@@ -10,13 +10,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { NgIf } from '@angular/common';
 import { TabViewModule } from 'primeng/tabview';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
-import { WordingUpload } from '../../core/models/model';
+import { Profil, WordingUpload } from '../../core/models/model';
 import { LoadingAnalyseComponent } from '../loading-analyse.component.ts/loading-analyse.component';
 import { finalize } from 'rxjs';
 import { ResultatAnalyseCvComponent } from '../../pages/analyse-cv/resultat-analyse-cv/resultat-analyse-cv.component';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
+import { ProfilService } from '../../core/services/profile.redirect.service';
 
 @Component({
   selector: 'app-upload-analyse',
@@ -48,7 +49,7 @@ export class UploadAnalyseComponent implements OnInit {
   tabIndex: number = 0;
 
   constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService,
-  private messageService: MessageService) { }
+  private messageService: MessageService, private profilService: ProfilService) { }
 
   ngOnInit() {
     this.uploadAnalyseFile.getFilesList().subscribe(data => { this.listToAnalyse = data })
@@ -103,5 +104,9 @@ export class UploadAnalyseComponent implements OnInit {
     if (fileInputElement) {
       fileInputElement.click();
     }
+  }
+
+  redirectProfile(profil: Profil) {
+      this.profilService.redirect(profil);
   }
 }

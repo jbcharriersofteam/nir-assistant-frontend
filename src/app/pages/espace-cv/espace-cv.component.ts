@@ -12,6 +12,7 @@ import { Button } from 'primeng/button';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
 import { AnalyseCandidatService } from '../../core/services/analyse-cv.service';
 import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analyse.component';
+import { ProfilService } from '../../core/services/profile.redirect.service';
 
 @Component({
   selector: 'app-espace-cv',
@@ -45,7 +46,7 @@ export class EspaceCvComponent implements OnInit {
     section2_title: "Sélectionner un CV"
   }
 
-  constructor(private analyseCandidatService: AnalyseCandidatService) {}
+  constructor(private analyseCandidatService: AnalyseCandidatService, private profilService : ProfilService) {}
 
   ngOnInit() {
     this.analyseCandidatService.getAllAnalysedCandidats().subscribe(data => { this.listCandidats = data; })
@@ -56,21 +57,6 @@ export class EspaceCvComponent implements OnInit {
   }
 
   redirect(profil: Profil) {
-    profil.metier_fonc = profil.metier_fonc
-      ? profil.metier_fonc
-      : [];
-    profil.experience = profil.experience
-      ? profil.experience.match(/[0-9]+/g)?.[0]
-      : undefined;
-    profil.attractivite = profil.attractivite
-      ? profil.attractivite.match(/[0-9]+/g)?.[0]
-      : '0';
-    profil.techno_majeures = profil.techno_majeures
-      ? profil.techno_majeures
-      : [];
-    profil.techno_mineures = profil.techno_mineures
-      ? profil.techno_mineures
-      : [];
-    this.router.navigate(['/analyse-cv'], { state: profil });
+    this.profilService.redirect(profil);
   }
 }
