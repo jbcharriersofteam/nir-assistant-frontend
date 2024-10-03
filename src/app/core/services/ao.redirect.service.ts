@@ -9,8 +9,7 @@ export class AoRedirectService {
 
   redirect(ao: any) {
     ao.metier_fonc = ao.metier_fonc
-      ? ao.metier_fonc
-      : [];
+      ? ao.metier_fonc : [];
     ao.experience = ao.experience
       ? ao.experience.match(/[0-9]+/g)?.[0]
       : undefined;

@@ -18,7 +18,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
 import { ProfilService } from '../../core/services/profile.redirect.service';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { ResultatAnalyseAOComponent } from '../../pages/espace-appel-offre/resultat-appel-offre/resultat-appel-offre.component';
 
 @Component({
@@ -53,8 +53,7 @@ export class UploadAnalyseComponent implements OnInit, OnDestroy {
   ao: any;
 
   constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService,
-  private messageService: MessageService, private profilService: ProfilService, public router : Router,
-  private activatedRoute: ActivatedRoute) { }
+  private messageService: MessageService, private profilService: ProfilService, public router : Router) { }
 
   ngOnInit() {
     this.uploadAnalyseFile.getFilesList().subscribe(data => { this.listToAnalyse = data })

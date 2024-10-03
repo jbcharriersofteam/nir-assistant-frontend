@@ -52,3 +52,20 @@ export interface Matching {
   techno_candidat?: string;
   techno_majeur_score?: string;
 }
+
+export interface AppelOffre {
+  id: string;
+  date: string;
+  emetteur: string;
+  duree: string;
+  date_demarrage: string;
+  profils_demandes: string;
+  techno_majeures: string;
+  techno_secondaires: string;
+  experience_requise: string;
+  domaines_fonctionnels: string;
+  synthese_ao: string;
+  synthese_profil_recherche: string;
+  description_ao: string;
+  description_profil_recherche: string;
+}
