@@ -23,13 +23,13 @@
             <th>Action</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-profil>
+        <ng-template pTemplate="body" let-ao>
           <tr>
-            <td> {{profil.id | abbreviate}} </td>
-            <td> {{profil.emetteur | abbreviate}} </td>
-            <td> <p-tag *ngFor="let item of (profil.profils_demandes | split_string)" class="skills-tag" [value]="item"/></td>
-            <td> {{profil.date_demarrage}} </td>
-            <td> <p-button label="Ouvrir la fiche" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect(profil)"></p-button> </td>
+            <td> {{ao.id | abbreviate}} </td>
+            <td> {{ao.emetteur | abbreviate}} </td>
+            <td> <p-tag *ngFor="let item of (ao.profils_demandes | split_string)" class="skills-tag" [value]="item"/></td>
+            <td> {{ao.date_demarrage}} </td>
+            <td> <p-button label="Ouvrir la fiche" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect(ao)"></p-button> </td>
           </tr>
         </ng-template>
       </p-table>

@@ -14,7 +14,7 @@ import { UploadAnalyseComponent } from '../../shared/upload-analyse/upload-analy
 import { AoService } from '../../core/services/ao.service';
 import { AbbreviatePipe } from '../../shared/pipes/abbreviate.pipe';
 import { SplitStringPipe } from '../../shared/pipes/split.pipe';
-import { ResultatAnalyseAOComponent } from './resultat-appel-offre/resultat-appel-offre.component';
+import { ResultatAnalyseAOComponent } from '../analyse-appel-offre/resultat-appel-offre/resultat-analyse-appel-offre.component';
 import { AoRedirectService } from '../../core/services/ao.redirect.service';
 
 @Component({

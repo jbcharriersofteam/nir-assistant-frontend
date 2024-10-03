@@ -28,30 +28,6 @@ import { Router } from '@angular/router';
   styleUrl: './analyse-cv.component.css',
 })
 export class AnalyseCvComponent implements OnInit {
-  aoCards = [
-    {
-      title: 'Data Engineering Senior',
-      quotation: 90,
-      id: 'ANNEXE_2_CAHIER_DES_CHARGES_AT_Data_Engineer_V2.4',
-      ref: '736293663',
-      client: 'Société Générale',
-      sector: 'Bancaire',
-      profiles: ['Big Data Engineer', 'Proxy PO Data', 'Data Analyste'],
-      startDate: '16/09/2024',
-      duration: '3 ans',
-    },
-    {
-      title: 'Data Engineering Senior',
-      quotation: 90,
-      id: 'ANNEXE_2_CAHIER_DES_CHARGES_AT_Data_Engineer_V2.4',
-      ref: '736293663',
-      client: 'Société Générale',
-      sector: 'Bancaire',
-      profiles: ['Big Data Engineer', 'Proxy PO Data', 'Data Analyste'],
-      startDate: '16/09/2024',
-      duration: '3 ans',
-    },
-  ];
   candidate: any;
 
   constructor(private router: Router) {

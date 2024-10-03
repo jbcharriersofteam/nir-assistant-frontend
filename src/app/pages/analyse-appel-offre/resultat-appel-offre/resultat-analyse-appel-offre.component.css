@@ -1,17 +1,17 @@
-.candidate-header {
+.ao-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.candidate-name {
+.ao-name {
   color: #00f;
   font-size: 42px;
   font-weight: 400;
   letter-spacing: -0.42px;
 }
 
-.candidate-score {
+.ao-score {
   background-color: #f4faf6;
   color: #4a801a;
   font-size: 24px;
@@ -20,17 +20,17 @@
   border-radius: 4px;
 }
 
-.candidate-details {
+.ao-details {
   margin-top: 3rem;
 }
 
-.candidate-info {
+.ao-info {
   display: flex;
   gap: 10rem;
   padding: 0;
 }
 
-.experience {
+.client {
   color: #00008c;
   font-weight: 700;
   font-size: 18px;
@@ -77,4 +77,10 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 8px 0;
+}
+
+.methodologie{
+  background-color: #FAF2E7;
+  color: #B26F2B;
+  border-radius: 5px;
 }

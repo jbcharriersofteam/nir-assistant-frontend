@@ -8,6 +8,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { DetailsCardComponent } from '../../../shared/details-card/details-card.component';
 import { DetailsCard } from '../../../core/models/model';
 import { FormsModule } from '@angular/forms';
+import { SplitStringPipe } from '../../../shared/pipes/split.pipe';
 
 @Component({
   selector: 'app-resultat-ao',
@@ -23,9 +24,10 @@ import { FormsModule } from '@angular/forms';
     NgFor,
     NgForOf,
     FormsModule,
+    SplitStringPipe,
   ],
-  templateUrl: './resultat-analyse-cv.component.html',
-  styleUrl: './resultat-appel-offre.component.css',
+  templateUrl: './resultat-analyse-appel-offre.component.html',
+  styleUrl: './resultat-analyse-appel-offre.component.css',
 })
 export class ResultatAnalyseAOComponent implements OnInit {
   @Input() ao: any;
@@ -34,28 +36,18 @@ export class ResultatAnalyseAOComponent implements OnInit {
   detailsData: DetailsCard[] = [];
 
   ngOnInit() {
-    this.attractivite = this.ao?.attractivite
-      ? this.ao.attractivite
-      : '';
-    if (this.ao?.points_forts) {
+    if (this.ao?.synthese_ao) {
       this.detailsData.push({
         icon: 'pi-thumbs-up',
-        title: 'Points forts :',
-        subtitle: this.ao.points_forts,
+        title: "Synthèse de l'appel d'offre :",
+        subtitle: this.ao.synthese_ao,
       });
     }
-    if (this.ao?.points_amelioration) {
+    if (this.ao?.synthese_profil_recherche) {
       this.detailsData.push({
         icon: 'pi-chart-line',
-        title: 'Points d’amélioration :',
-        subtitle: this.ao.points_amelioration,
-      });
-    }
-    if (this.ao?.recommandations) {
-      this.detailsData.push({
-        icon: 'pi-list-check',
-        title: 'Recommandations :',
-        subtitle: this.ao.recommandations,
+        title: 'Synthèse du profil recherché :',
+        subtitle: this.ao.synthese_profil_recherche,
       });
     }
   }
