@@ -98,19 +98,19 @@
     </div>
   </div>
   <div class="details grid">
-      <app-details-card [data]="justifications"></app-details-card>
+    <app-details-card [data]="justifications"></app-details-card>
   </div>
   <div class="details grid">
     <app-details-card [data]="recommandations"></app-details-card>
-</div>
-  <div class="candidate-details grid">
-    <!-- <div class="col-7">
+  </div>
+  <div *ngIf="selectedCv" class="candidate-details grid">
+    <div class="col-7">
       <section class="mb-5 candidate-info col-12">
         <p
-          *ngIf="candidate?.experience; else noExperienceTemplate"
+          *ngIf="selectedCv?.experience; else noExperienceTemplate"
           class="experience"
         >
-          Expérience : {{ candidate?.experience }} ans
+          Expérience : {{ selectedCv?.experience }} ans
         </p>
         <ng-template #noExperienceTemplate>
           <p class="experience">Expérience : N/A</p>
@@ -127,36 +127,38 @@
         </div>
       </section>
       <section class="skills-section col-12">
-        <div *ngIf="candidate?.profil" class="skill-item">
+        <div *ngIf="selectedCv?.profil" class="skill-item">
           <i class="pi pi-shopping-bag"></i>
           <div>
             <h2 class="skill-title">Compétences métier</h2>
-            <p class="skill-description">
-              {{ candidate?.profil }}
-            </p>
+            <div class="tag-container">
+              <span class="skill-description">
+                {{ selectedCv?.profil }}
+              </span>
+            </div>
           </div>
         </div>
 
-        <div *ngIf="candidate?.techno_majeures" class="skill-item">
+        <div *ngIf="selectedCv?.techno_majeures" class="skill-item">
           <i class="pi pi-wrench"></i>
           <div>
             <h2 class="skill-title">Outils principaux</h2>
             <div class="tag-container">
               <p-tag
-                *ngFor="let item of candidate?.techno_majeures"
+                *ngFor="let item of selectedCv?.techno_majeures | split_string"
                 class="skills-tag red"
                 value="{{ item }}"
               />
             </div>
           </div>
         </div>
-        <div *ngIf="candidate?.techno_mineures" class="skill-item">
+        <div *ngIf="selectedCv?.techno_mineures" class="skill-item">
           <i class="pi pi-wrench"></i>
           <div>
             <h2 class="skill-title">Outils secondaires</h2>
             <div class="tag-container">
               <p-tag
-                *ngFor="let item of candidate?.techno_mineures"
+                *ngFor="let item of selectedCv?.techno_mineures | split_string"
                 class="skills-tag red"
                 value="{{ item }}"
               />
@@ -164,12 +166,11 @@
           </div>
         </div>
       </section>
-    </div> -->
-    <!-- <div class="details col-5">
+    </div>
+    <div class="details col-5">
       <div *ngFor="let item of detailsData">
         <app-details-card [data]="item"></app-details-card>
       </div>
     </div>
-  </div> -->
   </div>
 </p-card>

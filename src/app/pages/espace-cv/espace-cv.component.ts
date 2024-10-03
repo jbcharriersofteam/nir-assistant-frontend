@@ -71,7 +71,6 @@ export class EspaceCvComponent implements OnInit {
     profil.techno_mineures = profil.techno_mineures
       ? profil.techno_mineures
       : [];
-    console.log(profil);
     this.router.navigate(['/analyse-cv'], { state: profil });
   }
 }

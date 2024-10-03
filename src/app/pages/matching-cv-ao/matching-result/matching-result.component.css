@@ -65,7 +65,7 @@
 .skill-item {
   display: flex;
   gap: 8px;
-  margin: 10px 0;
+  margin: 2rem 0;
 }
 
 .skill-title {
@@ -76,10 +76,12 @@
 }
 
 .skill-description {
+  background-color: #eff2ff;
+  border-radius: 5px;
   color: #00008c;
   font-size: 14px;
-  line-height: 20px;
-  margin: 4px 0;
+  padding: 5px;
+  margin-top: 5px;
 }
 
 .tag-container {
@@ -89,7 +91,7 @@
   margin: 8px 0;
 }
 
-.notations-container{
+.notations-container {
   margin: 2rem 0;
 }
 
