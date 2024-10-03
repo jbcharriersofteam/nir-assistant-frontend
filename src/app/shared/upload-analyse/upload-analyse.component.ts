@@ -47,6 +47,7 @@ export class UploadAnalyseComponent implements OnInit {
   candidate: any;
   showAnalyse = false;
   tabIndex: number = 0;
+  ao: any;
 
   constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService,
   private messageService: MessageService, private profilService: ProfilService) { }

@@ -36,7 +36,15 @@
 <p-card *ngIf="showAnalyse">
   <h2>Résultat de l’analyse</h2>
   <app-resultat-analyse-cv [candidate]="candidate"></app-resultat-analyse-cv>
+  <p-divider />
+  <div class="flex justify-content-end">
+    <p-button (click)="redirectProfile(candidate)">Voir la fiche complète</p-button>
+  </div>
+</p-card>
 
+<p-card *ngIf="showAnalyse">
+  <h2>Résultat de l’analyse</h2>
+  <app-resultat-ao [ao]="ao"></app-resultat-ao>
   <p-divider />
   <div class="flex justify-content-end">
     <p-button (click)="redirectProfile(candidate)">Voir la fiche complète</p-button>

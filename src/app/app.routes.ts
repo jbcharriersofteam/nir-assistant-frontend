@@ -23,6 +23,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'analyse-ao',
+    loadComponent: () =>
+      import('./pages/analyse-appel-offre/analyse-appel-offre.component').then(
+        (m) => m.AnalyseAppelOffreComponent
+      ),
+  },
+  {
     path: 'matching-cvao',
     loadComponent: () =>
       import('./pages/matching-cv-ao/matching-cv-ao.component').then(
