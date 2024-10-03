@@ -33,7 +33,7 @@
   </p-tabView>
 </p-card>
 
-<p-card *ngIf="showAnalyse">
+<p-card *ngIf="showAnalyse && router.url === '/espace-cv'">
   <h2>Résultat de l’analyse</h2>
   <app-resultat-analyse-cv [candidate]="candidate"></app-resultat-analyse-cv>
   <p-divider />
@@ -42,7 +42,7 @@
   </div>
 </p-card>
 
-<p-card *ngIf="showAnalyse">
+<p-card *ngIf="showAnalyse && router.url === '/espace-appel-offre'">
   <h2>Résultat de l’analyse</h2>
   <app-resultat-ao [ao]="ao"></app-resultat-ao>
   <p-divider />
@@ -50,6 +50,7 @@
     <p-button (click)="redirectProfile(candidate)">Voir la fiche complète</p-button>
   </div>
 </p-card>
+
 
 <app-loading-dialog></app-loading-dialog>
 

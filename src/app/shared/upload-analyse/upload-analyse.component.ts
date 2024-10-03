@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DividerModule } from 'primeng/divider';
@@ -12,26 +12,29 @@ import { TabViewModule } from 'primeng/tabview';
 import { AbstractUploadAnalyseFileService } from '../../core/services/upload-analyse-file';
 import { Profil, WordingUpload } from '../../core/models/model';
 import { LoadingAnalyseComponent } from '../loading-analyse.component.ts/loading-analyse.component';
-import { finalize } from 'rxjs';
+import { filter, finalize, Subscription } from 'rxjs';
 import { ResultatAnalyseCvComponent } from '../../pages/analyse-cv/resultat-analyse-cv/resultat-analyse-cv.component';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
 import { ProfilService } from '../../core/services/profile.redirect.service';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { ResultatAnalyseAOComponent } from '../../pages/espace-appel-offre/resultat-appel-offre/resultat-appel-offre.component';
 
 @Component({
   selector: 'app-upload-analyse',
   standalone: true,
   imports: [CardModule, FileUploadModule, DividerModule, DropdownModule, FormsModule, 
     IconFieldModule, InputIconModule, InputTextModule, NgIf, TabViewModule, DividerModule,
-    LoadingAnalyseComponent, ResultatAnalyseCvComponent, ToastModule, RippleModule
+    LoadingAnalyseComponent, ResultatAnalyseCvComponent, ResultatAnalyseAOComponent, ToastModule, RippleModule
   ],
   templateUrl: './upload-analyse.component.html',
   styleUrl: './upload-analyse.component.css',
   providers: [MessageService]
 })
-export class UploadAnalyseComponent implements OnInit {
+export class UploadAnalyseComponent implements OnInit, OnDestroy {
 
+  private routerSubscription: Subscription | any;
   @ViewChild(LoadingAnalyseComponent) loadingDialog!: LoadingAnalyseComponent;
   @Input() wordings: WordingUpload = {
     title: "",
@@ -50,10 +53,16 @@ export class UploadAnalyseComponent implements OnInit {
   ao: any;
 
   constructor(@Inject(AbstractUploadAnalyseFileService) private uploadAnalyseFile: AbstractUploadAnalyseFileService,
-  private messageService: MessageService, private profilService: ProfilService) { }
+  private messageService: MessageService, private profilService: ProfilService, public router : Router,
+  private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.uploadAnalyseFile.getFilesList().subscribe(data => { this.listToAnalyse = data })
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.showAnalyse = false;
+    });
   }
 
   uplaodFile() {
@@ -109,5 +118,11 @@ export class UploadAnalyseComponent implements OnInit {
 
   redirectProfile(profil: Profil) {
       this.profilService.redirect(profil);
+  }
+
+  ngOnDestroy() {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 }

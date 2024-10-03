@@ -1,18 +1,18 @@
-<div class="candidate-card">
-  <header class="candidate-header grid col">
-    <h1 class="candidate-name">{{ candidate?.id }}</h1>
-    <span class="candidate-score">90</span>
+<div class="ao-card">
+  <header class="ao-header grid col">
+    <h1 class="ao-name">{{ ao?.id }}</h1>
+    <span class="ao-score">90</span>
   </header>
   <div class="grid">
-    <div *ngIf="candidate?.metier_fonc.length" class="functions align-content-center">
-      <p-tag *ngFor="let item of candidate?.metier_fonc" class="function-tag mr-2" value="{{ item }}" />
+    <div *ngIf="ao?.metier_fonc.length" class="functions align-content-center">
+      <p-tag *ngFor="let item of ao?.metier_fonc" class="function-tag mr-2" value="{{ item }}" />
     </div>
   </div>
-  <div class="candidate-details grid">
+  <div class="ao-details grid">
     <div class="col-7">
-      <section class="mb-5 candidate-info col-12">
-        <p *ngIf="candidate?.experience; else noExperienceTemplate" class="experience">
-          Expérience : {{ candidate?.experience }} ans
+      <section class="mb-5 ao-info col-12">
+        <p *ngIf="ao?.experience; else noExperienceTemplate" class="experience">
+          Expérience : {{ ao?.experience }} ans
         </p>
         <ng-template #noExperienceTemplate>
           <p class="experience">Expérience : N/A</p>
@@ -25,7 +25,7 @@
         </div>
       </section>
       <section class="skills-section col-12">
-        <div *ngIf="candidate?.profil" class="skill-item">
+        <div *ngIf="ao?.profil" class="skill-item">
           <i class="pi pi-shopping-bag"></i>
           <div>
             <h2 class="skill-title">Profil recherché</h2>
@@ -52,7 +52,7 @@
             <h2 class="skill-title">Outils principaux</h2>
             <div class="tag-container">
               <!-- <p-tag
-                *ngFor="let item of candidate?.techno_mineures"
+                *ngFor="let item of ao?.techno_mineures"
                 class="skills-tag red"
                 value="{{ item }}" /> -->
             </div>
@@ -64,7 +64,7 @@
             <h2 class="skill-title">Outils secondaires</h2>
             <div class="tag-container">
               <!-- <p-tag
-                *ngFor="let item of candidate?.techno_mineures"
+                *ngFor="let item of ao?.techno_mineures"
                 class="skills-tag red"
                 value="{{ item }}"    /> -->
             </div>
@@ -76,7 +76,7 @@
             <h2 class="skill-title">Méthodologies</h2>
             <div class="tag-container">
               <!-- <p-tag
-                *ngFor="let item of candidate?.techno_mineures"
+                *ngFor="let item of ao?.techno_mineures"
                 class="skills-tag red"
                 value="{{ item }}"  /> -->
             </div>

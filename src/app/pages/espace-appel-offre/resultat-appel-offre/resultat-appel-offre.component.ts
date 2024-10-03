@@ -28,34 +28,34 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './resultat-appel-offre.component.css',
 })
 export class ResultatAnalyseAOComponent implements OnInit {
-  @Input() candidate: any;
+  @Input() ao: any;
 
   attractivite: string = '';
   detailsData: DetailsCard[] = [];
 
   ngOnInit() {
-    this.attractivite = this.candidate?.attractivite
-      ? this.candidate.attractivite
+    this.attractivite = this.ao?.attractivite
+      ? this.ao.attractivite
       : '';
-    if (this.candidate?.points_forts) {
+    if (this.ao?.points_forts) {
       this.detailsData.push({
         icon: 'pi-thumbs-up',
         title: 'Points forts :',
-        subtitle: this.candidate.points_forts,
+        subtitle: this.ao.points_forts,
       });
     }
-    if (this.candidate?.points_amelioration) {
+    if (this.ao?.points_amelioration) {
       this.detailsData.push({
         icon: 'pi-chart-line',
         title: 'Points d’amélioration :',
-        subtitle: this.candidate.points_amelioration,
+        subtitle: this.ao.points_amelioration,
       });
     }
-    if (this.candidate?.recommandations) {
+    if (this.ao?.recommandations) {
       this.detailsData.push({
         icon: 'pi-list-check',
         title: 'Recommandations :',
-        subtitle: this.candidate.recommandations,
+        subtitle: this.ao.recommandations,
       });
     }
   }
