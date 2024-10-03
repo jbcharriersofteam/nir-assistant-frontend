@@ -12,7 +12,9 @@
     [rows]="10"
     [rowsPerPageOptions]="[10, 25, 50]"
     [paginator]="true"
-    sortField="global_score" [sortOrder]="-1"
+    [globalFilterFields]="['appel_offre', 'client_ao', 'candidat', 'global_score']"
+    sortField="global_score"
+    [sortOrder]="-1"
   >
     <ng-template pTemplate="caption">
       <div class="flex justify-content-end">
