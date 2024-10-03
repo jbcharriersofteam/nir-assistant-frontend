@@ -68,10 +68,9 @@ export class UploadAnalyseComponent implements OnInit, OnDestroy {
   uploadedFile: File | undefined = undefined;
   listToAnalyse: any[] = [];
   selectedFileFromList: any | undefined;
-  candidate: any;
+  data: any;
   showAnalyse = false;
   tabIndex: number = 0;
-  ao: any;
 
   constructor(
     @Inject(AbstractUploadAnalyseFileService)
@@ -133,7 +132,7 @@ export class UploadAnalyseComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (result) => {
-          this.candidate = result;
+          this.data = result;
           console.log('Analyse terminée avec succès', result);
           this.messageService.add({
             severity: 'success',

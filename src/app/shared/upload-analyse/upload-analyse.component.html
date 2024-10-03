@@ -35,19 +35,19 @@
 
 <p-card *ngIf="showAnalyse && router.url === '/espace-cv'">
   <h2>Résultat de l’analyse</h2>
-  <app-resultat-analyse-cv [candidate]="candidate"></app-resultat-analyse-cv>
+  <app-resultat-analyse-cv [candidate]="data"></app-resultat-analyse-cv>
   <p-divider />
   <div class="flex justify-content-end">
-    <p-button (click)="redirectProfile(candidate)">Voir la fiche complète</p-button>
+    <p-button (click)="redirectProfile(data)">Voir la fiche complète</p-button>
   </div>
 </p-card>
 
 <p-card *ngIf="showAnalyse && router.url === '/espace-appel-offre'">
   <h2>Résultat de l’analyse</h2>
-  <app-resultat-ao [ao]="ao"></app-resultat-ao>
+  <app-resultat-ao [ao]="data"></app-resultat-ao>
   <p-divider />
   <div class="flex justify-content-end">
-    <p-button (click)="redirectAo(ao)">Voir la fiche complète</p-button>
+    <p-button (click)="redirectAo(data)">Voir la fiche complète</p-button>
   </div>
 </p-card>
 
