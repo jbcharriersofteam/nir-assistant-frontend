@@ -104,7 +104,7 @@ export class UploadAnalyseComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         this.messageService.add({
-          severity: 'danger',
+          severity: 'error',
           summary: 'Oups ! Le téléchargement a échoué',
           detail: 'Une erreur s’est produite lors du téléchargement de fichier',
         });
@@ -142,7 +142,7 @@ export class UploadAnalyseComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           this.messageService.add({
-            severity: 'danger',
+            severity: 'error',
             summary: 'Oups ! L’analyse a échoué',
             detail: 'Une erreur s’est produite lors de l’analyse du fichier',
           });
