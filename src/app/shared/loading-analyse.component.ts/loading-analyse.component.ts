@@ -21,7 +21,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
       <div class="flex flex-column align-items-center">
         <p-progressSpinner [style]="{width: '50px', height: '50px'}"></p-progressSpinner>
         <h3 style="color:'00008C'">Veuillez patienter</h3>
-        <p>L'analyse NR Assistant est en cours</p>
+        <p>L'analyse NIR Assistant est en cours</p>
         <button pButton label="Annuler l'analyse" (click)="cancelAnalysis()"></button>
       </div>
     </p-dialog>
