@@ -9,6 +9,8 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { ResultatAnalyseCvComponent } from './resultat-analyse-cv/resultat-analyse-cv.component';
 import { AoCardComponent } from '../../shared/ao-card/ao-card.component';
 import { Router } from '@angular/router';
+import { TableModule } from 'primeng/table';
+import { Button } from 'primeng/button';
 
 @Component({
   selector: 'app-analyse-cv',
@@ -23,12 +25,15 @@ import { Router } from '@angular/router';
     FloatLabelModule,
     ResultatAnalyseCvComponent,
     AoCardComponent,
+    TableModule,
+    Button
   ],
   templateUrl: './analyse-cv.component.html',
   styleUrl: './analyse-cv.component.css',
 })
 export class AnalyseCvComponent implements OnInit {
   candidate: any;
+  File_list: any[] = [];
 
   constructor(private router: Router) {
     this.candidate = this.router.getCurrentNavigation()?.extras?.state;

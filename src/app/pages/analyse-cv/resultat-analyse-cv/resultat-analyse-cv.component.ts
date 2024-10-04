@@ -46,11 +46,11 @@ export class ResultatAnalyseCvComponent implements OnInit {
         subtitle: this.candidate.points_forts,
       });
     }
-    if (this.candidate?.points_amelioration) {
+    if (this.candidate?.points_amélioration) {
       this.detailsData.push({
         icon: 'pi-chart-line',
         title: 'Points d’amélioration :',
-        subtitle: this.candidate.points_amelioration,
+        subtitle: this.candidate.points_amélioration,
       });
     }
     if (this.candidate?.recommandations) {
